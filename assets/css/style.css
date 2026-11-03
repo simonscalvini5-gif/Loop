@@ -631,47 +631,6 @@ p { text-wrap: pretty; }
   isolation: isolate;
 }
 
-/* Grand symbole en fond, parcouru en boucle par deux points lumineux */
-.hero-loop {
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  width: max(140vw, 900px);
-  height: auto;
-  transform: translate(-42%, -46%);
-  overflow: visible;
-  pointer-events: none;
-}
-@media (min-width: 1080px) {
-  .hero-loop { width: 92vw; transform: translate(-30%, -50%); }
-}
-.hero-loop path {
-  fill: none;
-  stroke-linecap: round;
-}
-/* Épaisseurs en unités du dessin (le symbole est agrandi ≈ 5×) */
-.hero-loop .track { stroke: #262626; stroke-width: 0.3; }
-
-/* La lumière : plusieurs segments de longueurs différentes partent du même
-   point et avancent ensemble ; les plus longs, plus transparents, forment
-   la traînée. */
-.hero-loop .trail {
-  stroke: var(--c-white);
-  stroke-width: 0.35;
-  opacity: var(--o);
-  /* motif « vide puis trait » : tous les traits finissent au même point,
-     la tête de la lumière */
-  stroke-dasharray: 0 calc(1 - var(--len)) var(--len) 0;
-  animation: trail-run 9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-}
-.hero-loop .trail--head { stroke-width: 0.6; }
-.hero-loop .trail--glow { stroke-width: 2.4; }
-@keyframes trail-run {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: -1; }
-}
-
 .hero-grid {
   display: grid;
   gap: clamp(56px, 8vw, 96px);
@@ -1864,7 +1823,6 @@ body.quote-open { overflow: hidden; }
     transition-delay: 0s !important;
   }
   .has-intro .intro { display: none; }
-  .hero-loop .trail,
   .scroll-cue i::after { display: none; }
   .statement-text .word { color: var(--c-white); }
   .step { opacity: 1; }
