@@ -279,10 +279,10 @@
           if (!response.ok) throw new Error("Erreur " + response.status);
           form.reset();
           status.classList.add("is-success");
-          status.textContent = "Merci, votre demande est bien envoyée. Je vous réponds sous 48 heures ouvrées.";
+          status.textContent = "Merci, votre demande est bien envoyée. Nous vous répondons sous 48 heures ouvrées.";
         })
         .catch(function () {
-          status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-moi directement par email.";
+          status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-nous directement par email.";
         })
         .finally(function () {
           submitBtn.disabled = false;
