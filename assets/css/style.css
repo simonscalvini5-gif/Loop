@@ -190,7 +190,7 @@ p { text-wrap: pretty; }
 
 .muted { color: var(--c-text-3); }
 
-/* Petit titre au-dessus des grands titres : « 01 · La solution » */
+/* Petit titre au-dessus des grands titres : « 01 · Notre solution » */
 .eyebrow {
   display: flex;
   align-items: center;
