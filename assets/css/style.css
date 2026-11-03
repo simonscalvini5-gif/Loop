@@ -846,11 +846,11 @@ p { text-wrap: pretty; }
   margin-bottom: clamp(32px, 5vw, 56px);
 }
 .statement-text {
-  max-width: 22em;
-  font-size: clamp(1.75rem, 3.6vw + 0.5rem, 3.5rem);
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: -0.035em;
+  max-width: 14em;
+  font-size: clamp(2.5rem, 6vw + 0.5rem, 6rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   color: var(--c-white);
 }
 /* Les mots passent du gris au blanc au fil du défilement (main.js) */
