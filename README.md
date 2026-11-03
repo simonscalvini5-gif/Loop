@@ -34,18 +34,17 @@ netlify.toml             Réglages Netlify (sécurité, cache)
 
 Les repères entre crochets sont à remplacer **dans tous les fichiers**. Le plus simple : ouvrez le dossier dans [VS Code](https://code.visualstudio.com/) (gratuit), faites **Ctrl + Maj + H** (Cmd + Maj + H sur Mac), saisissez le repère, puis la valeur, et cliquez sur « Remplacer tout ».
 
+Déjà renseignés : email (`contact@loop.fr`), téléphone, zone (toute la France), nom, résiliation sans engagement, domaine (`loop.fr`).
+
+Restent à compléter :
+
 | Repère | Exemple | Où |
 | --- | --- | --- |
-| `[EMAIL]` | `contact@loop-artisans.fr` | partout |
-| `[TÉLÉPHONE]` | `06 12 34 56 78` (affichage) | partout |
-| `[TÉLÉPHONE_LIEN]` | `+33612345678` (sans espaces, pour le lien qui lance l'appel) | partout |
-| `[ZONE GÉOGRAPHIQUE]` | `Lyon et 50 km autour` | partout |
-| `[DOMAINE]` | `www.loop-artisans.fr` (sans `https://`) | balises `<head>`, sitemap.xml, robots.txt |
 | `[FORMSPREE_ID]` | `xyzabcde` | index.html (formulaire) |
-| `[PRÉAVIS DE RÉSILIATION]` | `sans engagement, avec un mois de préavis` | index.html (FAQ) |
-| `[PRÉNOM NOM]` | votre nom | mentions légales, confidentialité |
 | `[ADRESSE POSTALE]` | adresse de domiciliation | mentions légales, confidentialité |
 | `[SIRET À COMPLÉTER]` | 14 chiffres | mentions légales |
+
+Pour changer le nom de domaine plus tard, remplacez `loop.fr` dans les balises `<head>` des pages, `sitemap.xml` et `robots.txt`.
 
 Sur les pages légales, les repères sont surlignés en pointillés : ils disparaissent dès que vous les remplacez par le texte (enlevez aussi la balise `<span class="todo">` autour).
 
