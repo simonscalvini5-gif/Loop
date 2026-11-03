@@ -18,7 +18,8 @@ cgv.html                 Conditions générales de vente (plan à compléter)
 assets/css/style.css     Toute la mise en forme. Les couleurs, tailles et espacements
                          sont réglés dans les variables en haut du fichier
 assets/js/intro.js       Choisit si l'animation d'ouverture est jouée (une fois par visite)
-assets/js/main.js        Menu mobile, animations au défilement, envoi du formulaire
+assets/js/main.js        Menu mobile, animations au défilement, défilement fluide
+assets/js/vendor/        Lenis (défilement fluide, licence MIT)
 assets/fonts/            Police Inter, hébergée sur le site (pas d'appel à Google)
 assets/img/logo/         Logos LOOP (SVG) et favicon
 assets/img/              Icônes de l'application et image de partage (og-image.png)
@@ -40,7 +41,6 @@ Restent à compléter :
 
 | Repère | Exemple | Où |
 | --- | --- | --- |
-| `[FORMSPREE_ID]` | `xyzabcde` | index.html (formulaire) |
 | `[ADRESSE POSTALE]` | adresse de domiciliation | mentions légales, confidentialité |
 | `[SIRET À COMPLÉTER]` | 14 chiffres | mentions légales |
 
@@ -53,30 +53,14 @@ Sur les pages légales, les repères sont surlignés en pointillés : ils dispar
 Ces phrases vous engagent auprès de vos clients. Gardez-les seulement si elles sont vraies :
 
 - FAQ : « hébergées en Europe », « sauvegardes chaque jour », « récupérer vos données dans un fichier Excel », « quelques semaines de mise en place ».
-- Contact : « Je vous réponds sous 48 heures ouvrées ».
+- Pied de page : « Nous vous répondons sous 48 heures ouvrées ».
 - Mentions légales : l'adresse de Netlify (vérifiez-la sur netlify.com au moment de la mise en ligne).
-- Confidentialité : les garanties de transfert hors UE de Formspree et Netlify (voir leurs pages « DPA » ou « Privacy »).
+- Confidentialité : les garanties de transfert hors UE de Netlify (voir sa page « DPA »).
 - CGV : la page contient uniquement un plan. Faites rédiger ou relire le texte final par un professionnel.
 
 ---
 
-## 3. Relier le formulaire de contact (Formspree)
-
-Le site n'a pas de serveur : c'est Formspree qui reçoit les messages et vous les envoie par email.
-
-1. Créez un compte gratuit sur [formspree.io](https://formspree.io) avec votre email professionnel.
-2. Cliquez sur **New Form**, donnez-lui un nom (« Site LOOP »).
-3. Formspree affiche une adresse du type `https://formspree.io/f/xyzabcde`. La fin (`xyzabcde`) est votre identifiant.
-4. Dans `index.html`, remplacez `[FORMSPREE_ID]` par cet identifiant.
-5. Après la mise en ligne, envoyez-vous un message de test. Le premier envoi demande de confirmer votre email.
-
-Le formulaire affiche un message de confirmation sans quitter la page. Un champ invisible bloque les robots.
-
-> Alternative : Netlify propose aussi son propre service de formulaires (Netlify Forms). Formspree a été retenu pour pouvoir changer d'hébergeur sans rien modifier.
-
----
-
-## 4. Voir le site sur votre ordinateur
+## 3. Voir le site sur votre ordinateur
 
 **Le plus simple :** double-cliquez sur `index.html`. Le site s'ouvre dans votre navigateur.
 
@@ -92,7 +76,7 @@ Pour revoir l'animation d'ouverture, fermez l'onglet et rouvrez le site (elle n'
 
 ---
 
-## 5. Mettre le site en ligne gratuitement (GitHub + Netlify)
+## 4. Mettre le site en ligne gratuitement (GitHub + Netlify)
 
 ### Étape 1 · Mettre le code sur GitHub
 
@@ -136,25 +120,27 @@ Créez un compte [Google Search Console](https://search.google.com/search-consol
 
 ---
 
-## 6. Modifier le site
+## 5. Modifier le site
 
 | Je veux… | Où |
 | --- | --- |
 | Changer un texte | `index.html` : chaque section est signalée par un grand commentaire (`1. ACCUEIL`, `2. LA SOLUTION`…) |
-| Changer une couleur de gris, une taille de titre, un espacement | Variables en haut de `assets/css/style.css` (partie 2) |
+| Changer une couleur de gris, une taille de titre, un espacement | Variables en haut de `assets/css/style.css` (partie 2) ; `--c-deep` est le noir profond |
 | Modifier le menu ou le pied de page | Ils sont présents dans **chaque page HTML** : faites la modification dans les 4 fichiers |
+| Changer les phrases de « Ce que fait LOOP » | Bloc `HISTOIRE` dans `index.html` (garder 4 phrases) |
 | Ajouter une question à la FAQ | Copiez un bloc `<details class="faq-item">…</details>` dans `index.html` |
 | Désactiver l'animation d'ouverture | Supprimez le bloc `<div class="intro">…</div>` dans `index.html` |
 | Accélérer ou ralentir les animations | Durées dans `style.css` (parties 7 et 19) |
 
 ---
 
-## 7. Choix techniques
+## 6. Choix techniques
 
 - **Noir, blanc et gris uniquement.** Les contrastes de texte respectent les recommandations d'accessibilité (WCAG AA).
-- **Animations discrètes** : logo qui se dessine à l'ouverture, titres qui glissent, éléments qui apparaissent au défilement, symbole LOOP qui se trace au fil des 4 étapes, mots qui s'éclairent dans le bandeau noir, grand logo en bas de page. Elles sont **toutes désactivées** si le visiteur l'a demandé dans les réglages de son téléphone ou ordinateur (« réduire les animations »).
-- **Sans JavaScript**, tout le contenu reste visible et le formulaire fonctionne.
+- **Animations** : logo qui se dessine à l'ouverture, point lumineux qui tourne sans fin dans le symbole de l'accueil, logo de l'en-tête qui se redessine au survol, section « Ce que fait LOOP » où le logo se trace pendant le défilement, titres qui apparaissent mot par mot, bandeau noir qui s'élargit, mots qui glissent selon le défilement, cartes qui passent en noir au survol, grand logo animé en bas de page. Elles sont **toutes désactivées** si le visiteur l'a demandé dans les réglages de son téléphone ou ordinateur (« réduire les animations »).
+- **Sans JavaScript**, tout le contenu reste visible.
+- **Défilement fluide** grâce à Lenis (hébergé sur le site, licence MIT).
 - **Police Inter hébergée sur le site** : plus rapide, et aucune donnée de visiteur n'est envoyée à Google (pas de bandeau cookies nécessaire).
-- **Aucun cookie**, aucun outil de suivi.
-- **Accessibilité** : balises sémantiques, lien « Aller au contenu », navigation au clavier, textes alternatifs, libellés de formulaire, messages d'erreur lus par les lecteurs d'écran.
+- **Aucun cookie**, aucun outil de suivi, aucun formulaire : les demandes de devis passent par email ou téléphone.
+- **Accessibilité** : balises sémantiques, lien « Aller au contenu », navigation au clavier, textes alternatifs.
 - **SEO** : titre et description par page, Open Graph (aperçu lors d'un partage), données structurées, sitemap.

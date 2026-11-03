@@ -8,7 +8,7 @@
   <title>LOOP · ERP personnalisé</title>
   <meta name="description" content="LOOP crée des ERP personnalisés pour les entreprises : fournisseurs, stock, alertes de réapprovisionnement et dépenses par chantier. Reprise de vos fichiers Excel, utilisable sur téléphone, accompagnement humain.">
   <link rel="canonical" href="https://loop.fr/">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#050505">
 
   <!-- ========== Partage sur les réseaux (Open Graph) ========== -->
   <meta property="og:type" content="website">
@@ -33,6 +33,7 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/intro.js"></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 
   <!-- ========== Données structurées pour Google (à compléter) ========== -->
@@ -76,17 +77,18 @@
        ====================================================================== -->
   <header class="site-header" data-header>
     <div class="container header-inner">
+      <!-- Logo : il se redessine au survol de la souris -->
       <a class="brand" href="index.html" aria-label="LOOP, retour à l'accueil">
-        <svg viewBox="22 74 419 102" width="419" height="102" aria-hidden="true" focusable="false">
+        <svg class="brand-logo" viewBox="22 74 419 102" width="419" height="102" aria-hidden="true" focusable="false">
           <mask id="m-head" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
             <rect width="600" height="300" fill="#fff"/>
             <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
           </mask>
           <g fill="none" stroke="currentColor" stroke-width="16">
-            <path d="M30,74 V168 H86"/>
-            <path mask="url(#m-head)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
-            <path d="M210,143 L242,107"/>
-            <path d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+            <path class="p-l" pathLength="1" d="M30,74 V168 H86"/>
+            <path class="p-loop" pathLength="1" mask="url(#m-head)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="p-cross" pathLength="1" d="M210,143 L242,107"/>
+            <path class="p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
           </g>
         </svg>
       </a>
@@ -97,7 +99,6 @@
           <li><a href="#methode">Méthode</a></li>
           <li><a href="#offre">Offre</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-contact">
           <a href="mailto:contact@loop.fr">contact@loop.fr</a>
@@ -105,7 +106,7 @@
         </div>
       </nav>
 
-      <a class="btn btn--small" href="#contact" aria-label="Demander un devis">
+      <a class="btn btn--small header-cta" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" aria-label="Demander un devis par email">
         <span class="only-desktop">Demander un devis</span><span class="only-mobile">Devis</span>
       </a>
 
@@ -115,6 +116,8 @@
         <i class="bar" aria-hidden="true"></i>
       </button>
     </div>
+    <!-- Barre fine qui indique la progression dans la page -->
+    <span class="scroll-progress" aria-hidden="true"></span>
   </header>
 
   <main id="contenu">
@@ -122,9 +125,16 @@
     <!-- ====================================================================
          1. ACCUEIL
          ==================================================================== -->
-    <section class="hero" aria-labelledby="titre-accueil">
+    <section class="hero on-dark" data-theme="dark" data-hero aria-labelledby="titre-accueil">
+      <!-- Grand symbole LOOP en fond : un point lumineux en fait le tour sans fin -->
+      <svg class="hero-loop" viewBox="90 64 272 122" aria-hidden="true" focusable="false">
+        <path class="track" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+        <path class="comet" pathLength="1" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+        <path class="comet comet--2" pathLength="1" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+      </svg>
+
       <div class="container hero-grid">
-        <div class="hero-text">
+        <div class="hero-text" data-hero-text>
           <p class="eyebrow hero-fade" style="--i:0">ERP personnalisé</p>
 
           <h1 class="hero-title" id="titre-accueil">
@@ -138,24 +148,22 @@
           </p>
 
           <div class="hero-actions hero-fade" style="--i:2">
-            <a class="btn" href="#contact">
+            <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis">
               Demander un devis
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
             </a>
-            <a class="link" href="#methode">
-              Voir comment ça marche
+            <a class="link" href="#histoire">
+              Découvrir LOOP
               <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 1v13M3 9l5 5 5-5"/></svg>
             </a>
           </div>
 
-          <p class="hero-note hero-fade" style="--i:3">
-            Intervention dans toute la France.
-          </p>
+          <p class="hero-note hero-fade" style="--i:3">Intervention dans toute la France.</p>
         </div>
 
         <!-- Maquette stylisée : exemple de tableau de bord + téléphone.
              Les chiffres sont fictifs. -->
-        <div class="hero-visual parallax" data-parallax="0.06">
+        <div class="hero-visual" data-hero-visual>
           <div class="mockup mockup-in" role="img" aria-label="Exemple d'application LOOP : tableau de bord avec les dépenses du mois, les articles en stock bas et les dépenses par fournisseur, et sur téléphone une alerte de réapprovisionnement.">
             <div class="mock-window" aria-hidden="true">
               <div class="mock-bar"><i></i><i></i><i></i><b>Tableau de bord · Novembre</b></div>
@@ -201,6 +209,59 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <!-- Indication de défilement -->
+      <a class="scroll-cue hero-fade" style="--i:4" href="#histoire" aria-label="Faire défiler vers la suite">
+        <span>Défiler</span><i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ====================================================================
+         HISTOIRE : section « épinglée ». En défilant, le symbole LOOP se
+         dessine et relie, un par un, les éléments de votre gestion.
+         ==================================================================== -->
+    <section class="story on-dark" id="histoire" data-theme="dark" data-story aria-labelledby="titre-histoire">
+      <div class="story-sticky">
+        <p class="eyebrow story-eyebrow">Ce que fait LOOP</p>
+        <h2 class="sr-only" id="titre-histoire">Tout est relié, au même endroit</h2>
+
+        <div class="story-logo">
+          <svg class="story-track" viewBox="22 74 419 102" width="419" height="102" aria-hidden="true" focusable="false">
+          <mask id="m-story-track" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+            <rect width="600" height="300" fill="#fff"/>
+            <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
+          </mask>
+          <g fill="none" stroke="currentColor" stroke-width="16">
+            <path class="p-l" d="M30,74 V168 H86"/>
+            <path class="p-loop" mask="url(#m-story-track)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="p-cross" d="M210,143 L242,107"/>
+            <path class="p-p" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+          </g>
+        </svg>
+          <svg class="story-draw" viewBox="22 74 419 102" width="419" height="102" aria-hidden="true" focusable="false">
+          <mask id="m-story" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+            <rect width="600" height="300" fill="#fff"/>
+            <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
+          </mask>
+          <g fill="none" stroke="currentColor" stroke-width="16">
+            <path class="p-l" pathLength="1" d="M30,74 V168 H86"/>
+            <path class="p-loop" pathLength="1" mask="url(#m-story)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="p-cross" pathLength="1" d="M210,143 L242,107"/>
+            <path class="p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+          </g>
+        </svg>
+        </div>
+
+        <ol class="story-lines">
+          <li class="is-current"><strong>Vos fournisseurs.</strong></li>
+          <li><strong>Votre stock.</strong></li>
+          <li><strong>Vos dépenses.</strong></li>
+          <li><strong>Tout est relié.</strong><span>Un seul outil, pensé pour votre entreprise.</span></li>
+        </ol>
+
+        <p class="story-count" aria-hidden="true"><strong data-story-count>01</strong> / 04</p>
+      </div>
     </section>
 
     <!-- ====================================================================
@@ -211,7 +272,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow reveal">01 · Notre solution</p>
-            <h2 class="reveal" style="--d:1" id="titre-solution">Une seule application, pensée pour votre façon de travailler.</h2>
+            <h2 class="split" id="titre-solution">Une seule application, pensée pour votre façon de travailler.</h2>
           </div>
           <p class="lead reveal" style="--d:2">
             Pas un logiciel générique à apprivoiser : une application construite autour
@@ -266,15 +327,24 @@
       </div>
     </section>
 
-    <!-- Bandeau noir : les mots s'éclairent au fil du défilement -->
-    <section class="statement on-dark" aria-label="Notre principe">
-      <div class="container">
-        <img class="statement-symbol reveal" src="assets/img/logo/loop-symbole-blanc.svg" alt="" width="254" height="104">
-        <p class="statement-text" data-words>
-          Vous l'imaginez, nous le construisons.
-        </p>
-      </div>
-    </section>
+    <!-- Bandeau noir : il s'élargit jusqu'aux bords, puis les mots s'éclairent -->
+    <div class="statement-wrap">
+      <section class="statement on-dark" data-theme="dark" data-expand aria-label="Notre promesse">
+        <div class="container">
+          <svg class="statement-symbol reveal" viewBox="99 73 254 104" width="254" height="104" aria-hidden="true" focusable="false">
+            <mask id="m-statement" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+              <rect width="600" height="300" fill="#fff"/>
+              <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/>
+            </mask>
+            <g fill="none" stroke="#fff" stroke-width="18">
+              <path mask="url(#m-statement)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+              <path d="M209,144 L243,106"/>
+            </g>
+          </svg>
+          <p class="statement-text" data-words>Vous l'imaginez, nous le construisons.</p>
+        </div>
+      </section>
+    </div>
 
     <!-- ====================================================================
          3. COMMENT ÇA MARCHE
@@ -284,7 +354,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow reveal">02 · Comment ça marche</p>
-            <h2 class="reveal" style="--d:1" id="titre-methode">Quatre étapes, sans mauvaise surprise.</h2>
+            <h2 class="split" id="titre-methode">Quatre étapes, sans mauvaise surprise.</h2>
           </div>
           <p class="lead reveal" style="--d:2">
             Vous savez à chaque étape ce qui se passe, ce que ça coûte et ce que vous
@@ -337,6 +407,12 @@
       </div>
     </section>
 
+    <!-- Bandeau de mots qui glissent selon le défilement (décoratif) -->
+    <div class="ticker on-dark" data-theme="dark" data-ticker aria-hidden="true">
+      <p class="ticker-row" data-dir="-1">Fournisseurs <i></i> Stock <i></i> Alertes <i></i> Tableaux de bord <i></i> Fournisseurs <i></i> Stock <i></i> Alertes <i></i></p>
+      <p class="ticker-row ticker-row--outline" data-dir="1">Sur mobile <i></i> Import Excel <i></i> Accompagnement <i></i> Sur mobile <i></i> Import Excel <i></i> Accompagnement <i></i></p>
+    </div>
+
     <!-- ====================================================================
          4. L'OFFRE
          ==================================================================== -->
@@ -345,43 +421,44 @@
         <div class="section-head">
           <div>
             <p class="eyebrow reveal">03 · L'offre</p>
-            <h2 class="reveal" style="--d:1" id="titre-offre">Un tarif clair, en deux parties.</h2>
+            <h2 class="split" id="titre-offre">Payée une fois. Améliorée quand vous le voulez.</h2>
           </div>
           <p class="lead reveal" style="--d:2">
-            Une mise en place pour démarrer, puis un abonnement mensuel pour que tout
-            continue de fonctionner, sans que vous ayez à vous en occuper.
+            Votre application se paie une seule fois. Ensuite, vous choisissez&nbsp;: la garder
+            telle quelle, ou la faire évoluer toute l'année avec un développeur à vos côtés.
           </p>
         </div>
 
         <div class="offer-grid">
           <article class="offer-card reveal">
-            <p class="offer-kicker"><span>01</span><span>Une seule fois</span></p>
-            <h3>Mise en place</h3>
-            <p>Tout ce qu'il faut pour démarrer du bon pied.</p>
+            <p class="offer-kicker"><span>01</span><span>Paiement unique</span></p>
+            <h3>Votre application</h3>
+            <p>Conçue, installée et prise en main, avec deux mois pour l'ajuster.</p>
             <ul class="check-list">
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Analyse de vos besoins et de vos fichiers</li>
-              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Paramétrage de l'application à votre métier</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Création de l'application, adaptée à votre métier</li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Import de vos fichiers Excel</li>
               <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Formation de vous et de votre équipe</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg><strong>2 mois de suivi</strong> pour ajuster l'application à l'usage</li>
             </ul>
           </article>
 
           <article class="offer-card offer-card--dark on-dark reveal" style="--d:1">
-            <p class="offer-kicker"><span>02</span><span>Chaque mois</span></p>
-            <h3>Abonnement</h3>
-            <p>Votre application reste disponible, à jour et entre de bonnes mains.</p>
+            <p class="offer-kicker"><span>02</span><span>En option · Chaque année</span></p>
+            <h3>Abonnement annuel</h3>
+            <p>Un développeur à votre disposition pour faire grandir votre application.</p>
             <ul class="check-list">
-              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Hébergement sécurisé et sauvegardes</li>
-              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Mises à jour et maintenance</li>
-              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Assistance par téléphone et par email</li>
-              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Des évolutions incluses chaque mois</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Un développeur joignable toute l'année</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Mises à jour à n'importe quel moment</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Nouvelles fonctions et améliorations de l'application</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Maintenance et corrections</li>
             </ul>
           </article>
         </div>
 
         <div class="offer-foot reveal">
-          <p>Chaque entreprise est différente. Le tarif dépend de vos besoins, et vous le connaissez avant de vous engager.</p>
-          <a class="btn" href="#contact">
+          <p>Chaque entreprise est différente. Le prix dépend de vos besoins, et vous le connaissez avant de vous engager.</p>
+          <a class="btn" href="mailto:contact@loop.fr?subject=Demande%20de%20devis">
             Demander un devis
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
           </a>
@@ -396,8 +473,8 @@
       <div class="container faq-grid">
         <div class="faq-intro">
           <p class="eyebrow reveal">04 · Questions fréquentes</p>
-          <h2 class="reveal" style="--d:1" id="titre-faq">Vos questions, des réponses simples.</h2>
-          <p class="reveal" style="--d:2">Une autre question ? <a class="link" href="#contact">Écrivez-nous</a></p>
+          <h2 class="split" id="titre-faq">Vos questions, des réponses simples.</h2>
+          <p class="reveal" style="--d:2">Une autre question ? <a class="link" href="mailto:contact@loop.fr">Écrivez-nous</a></p>
         </div>
 
         <div class="faq-list reveal">
@@ -415,9 +492,9 @@
             </div>
           </details>
           <details class="faq-item">
-            <summary>Puis-je arrêter l'abonnement ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <summary>L'abonnement est-il obligatoire ?<span class="faq-sign" aria-hidden="true"></span></summary>
             <div class="faq-answer">
-              <p>Oui, l'abonnement est sans engagement : vous l'arrêtez quand vous le souhaitez. Avant l'arrêt, nous vous remettons l'ensemble de vos données dans un format lisible.</p>
+              <p>Non. L'abonnement est facultatif et annuel : chaque année, vous choisissez de le renouveler ou non. Votre application et vos données restent à vous dans tous les cas.</p>
             </div>
           </details>
           <details class="faq-item">
@@ -442,94 +519,33 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         6. CONTACT
-         Formulaire envoyé via Formspree : remplacez [FORMSPREE_ID]
-         (voir README). Sans JavaScript, le formulaire fonctionne aussi.
-         ==================================================================== -->
-    <section class="section contact" id="contact" aria-labelledby="titre-contact">
-      <div class="container contact-grid">
-        <div class="contact-intro">
-          <p class="eyebrow reveal">05 · Contact</p>
-          <h2 class="reveal" style="--d:1" id="titre-contact">Parlons de votre activité.</h2>
-          <p class="lead reveal" style="--d:2">Décrivez-nous en quelques lignes comment vous travaillez aujourd'hui. Nous vous répondons sous 48 heures ouvrées.</p>
-
-          <dl class="contact-details reveal" style="--d:3">
-            <div><dt>Email</dt><dd><a class="link" href="mailto:contact@loop.fr">contact@loop.fr</a></dd></div>
-            <div><dt>Téléphone</dt><dd><a class="link" href="tel:+33783539645">07 83 53 96 45</a></dd></div>
-            <div><dt>Zone d'intervention</dt><dd>Toute la France</dd></div>
-          </dl>
-        </div>
-
-        <form class="form reveal" style="--d:1" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
-          <input type="hidden" name="_subject" value="Nouvelle demande de devis depuis le site LOOP">
-          <!-- Champ piège pour les robots : laissé vide par les humains -->
-          <div class="hp" aria-hidden="true">
-            <label for="f-gotcha">Ne pas remplir</label>
-            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="field">
-            <label for="f-nom">Nom et prénom</label>
-            <input id="f-nom" name="nom" type="text" autocomplete="name" required aria-describedby="e-nom">
-            <p class="field-error" id="e-nom" aria-live="polite"></p>
-          </div>
-          <div class="field">
-            <label for="f-activite">Activité</label>
-            <input id="f-activite" name="activite" type="text" placeholder="Votre secteur d'activité" autocomplete="organization-title" required aria-describedby="e-activite">
-            <p class="field-error" id="e-activite" aria-live="polite"></p>
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
-            <p class="field-error" id="e-email" aria-live="polite"></p>
-          </div>
-          <div class="field">
-            <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
-            <input id="f-tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
-          </div>
-          <div class="field field--full">
-            <label for="f-message">Votre message</label>
-            <textarea id="f-message" name="message" rows="5" placeholder="Ex. : 3 salariés, un fichier Excel pour le stock, je voudrais savoir ce qui part sur chaque chantier." required aria-describedby="e-message"></textarea>
-            <p class="field-error" id="e-message" aria-live="polite"></p>
-          </div>
-
-          <div class="form-foot">
-            <button class="btn" type="submit">
-              <span data-submit-label>Envoyer ma demande</span>
-              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
-            </button>
-            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
-            <p class="form-legal">
-              Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées
-              pour de la publicité. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.
-            </p>
-          </div>
-        </form>
-      </div>
-    </section>
   </main>
 
   <!-- ======================================================================
-       PIED DE PAGE (identique sur toutes les pages : pensez à le copier)
+       PIED DE PAGE (identique sur toutes les pages)
        ====================================================================== -->
-  <footer class="site-footer on-dark">
+  <footer class="site-footer on-dark" data-theme="dark">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-pitch">
-          <p>Des outils simples, faits pour votre entreprise.</p>
-          <a class="btn btn--light" href="#contact">
+      <div class="footer-cta">
+        <h2 class="footer-title split">Parlons de votre projet.</h2>
+        <p class="footer-lead reveal" style="--d:1">Un appel ou un email suffit. Nous vous répondons sous 48 heures ouvrées.</p>
+        <div class="footer-actions reveal" style="--d:2">
+          <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis">
             Demander un devis
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
           </a>
+          <a class="btn btn--ghost-light" href="tel:+33783539645">07 83 53 96 45</a>
         </div>
+      </div>
+
+      <div class="footer-top">
         <nav class="footer-col" aria-labelledby="pied-nav">
           <h2 id="pied-nav">Le site</h2>
           <ul>
-            <li><a class="link" href="#solution">Notre solution</a></li>
-            <li><a class="link" href="#methode">Méthode</a></li>
-            <li><a class="link" href="#offre">Offre</a></li>
-            <li><a class="link" href="#faq">FAQ</a></li>
+            <li><a class="link" href="index.html#solution">Notre solution</a></li>
+            <li><a class="link" href="index.html#methode">Méthode</a></li>
+            <li><a class="link" href="index.html#offre">Offre</a></li>
+            <li><a class="link" href="index.html#faq">FAQ</a></li>
           </ul>
         </nav>
         <div class="footer-col">
@@ -550,7 +566,7 @@
         </nav>
       </div>
 
-      <!-- Grand logo qui se dessine quand on arrive en bas de page -->
+      <!-- Grand logo : il se dessine à l'arrivée, puis un point lumineux tourne dans la boucle -->
       <svg class="footer-wordmark" data-reveal-self viewBox="22 66 419 118" width="419" height="118" aria-hidden="true" focusable="false">
         <mask id="m-foot" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
           <rect width="600" height="300" fill="#fff"/>
@@ -561,6 +577,7 @@
           <path class="draw p-loop" pathLength="1" mask="url(#m-foot)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
           <path class="draw p-cross" pathLength="1" d="M210,143 L242,107"/>
           <path class="draw p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+          <path class="comet" pathLength="1" mask="url(#m-foot)" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
         </g>
       </svg>
 
