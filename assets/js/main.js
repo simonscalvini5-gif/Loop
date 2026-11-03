@@ -224,7 +224,7 @@
 
     var messages = {
       nom: "Indiquez votre nom.",
-      metier: "Indiquez votre métier.",
+      activite: "Indiquez votre activité.",
       email: "Indiquez une adresse email valide (ex. : nom@exemple.fr).",
       message: "Écrivez quelques mots sur votre besoin."
     };

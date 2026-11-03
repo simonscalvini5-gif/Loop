@@ -11,9 +11,8 @@
    7.  Écran d'introduction (logo animé)
    8.  En-tête et navigation
    9.  Accueil (hero) + maquette de tableau de bord
-   10. Bandeau des métiers
    11. La solution
-   12. Bandeau « Simple par principe » (fond noir)
+   12. Bandeau noir « Vous l'imaginez… »
    13. Méthode (4 étapes + symbole qui se dessine)
    14. Offre
    15. FAQ
@@ -764,43 +763,6 @@ p { text-wrap: pretty; }
 .mock-alert span { color: var(--c-dark-text-2); }
 
 
-/* 10. Bandeau des métiers (défile lentement) ------------------------------ */
-.trades {
-  border-block: 1px solid var(--c-line);
-  overflow: hidden;
-  padding-block: 22px;
-}
-.trades-track {
-  display: flex;
-  width: max-content;
-}
-.trades-list {
-  display: flex;
-  flex: none;
-  align-items: center;
-}
-.trades-list li {
-  display: flex;
-  align-items: center;
-  font-size: clamp(1rem, 1.4vw, 1.125rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--c-text-2);
-  white-space: nowrap;
-}
-.trades-list li::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  margin-inline: clamp(24px, 3.5vw, 44px);
-  border-radius: 50%;
-  background: var(--c-line-strong);
-}
-.js .trades-track { animation: marquee 60s linear infinite; }
-.trades:hover .trades-track { animation-play-state: paused; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
-
 /* 11. La solution -------------------------------------------------------- */
 .solution { background: var(--c-soft); }
 
@@ -834,7 +796,7 @@ p { text-wrap: pretty; }
 .feature p { color: var(--c-text-2); }
 
 
-/* 12. Bandeau « Simple par principe » ------------------------------------- */
+/* 12. Bandeau noir « Vous l'imaginez… » ------------------------------------- */
 .statement {
   background: var(--c-black);
   color: var(--c-white);
@@ -1434,7 +1396,6 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
     transition-delay: 0s !important;
   }
   .has-intro .intro { display: none; }
-  .js .trades-track { animation: none; }
   .statement-text .word { color: var(--c-white); }
   .step { opacity: 1; }
 }
