@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Politique de confidentialité · LOOP</title>
-  <meta name="description" content="Comment LOOP traite les informations que vous lui transmettez, et vos droits (RGPD).">
+  <meta name="description" content="Comment LOOP traite les informations envoyées via le formulaire de devis, et vos droits (RGPD).">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://loop.fr/confidentialite.html">
   <meta name="theme-color" content="#050505">
@@ -12,7 +12,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="LOOP">
   <meta property="og:title" content="Politique de confidentialité · LOOP">
-  <meta property="og:description" content="Comment LOOP traite les informations que vous lui transmettez, et vos droits (RGPD).">
+  <meta property="og:description" content="Comment LOOP traite les informations envoyées via le formulaire de devis, et vos droits (RGPD).">
   <meta property="og:url" content="https://loop.fr/confidentialite.html">
   <meta property="og:image" content="https://loop.fr/assets/img/og-image.png">
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -60,7 +60,7 @@
         </div>
       </nav>
 
-      <a class="btn btn--small header-cta" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" aria-label="Demander un devis par email">
+      <a class="btn btn--small header-cta" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" aria-label="Demander un devis" data-quote>
         <span class="only-desktop">Demander un devis</span><span class="only-mobile">Devis</span>
       </a>
 
@@ -89,22 +89,27 @@
         <p>Simon Scalvini, entrepreneur individuel exerçant sous le nom LOOP, <span class="todo">[ADRESSE POSTALE]</span>. Contact : <a href="mailto:contact@loop.fr">contact@loop.fr</a>.</p>
 
         <h2>Quelles données sont collectées ?</h2>
-        <p>Ce site ne comporte aucun formulaire et ne collecte aucune donnée à votre insu. Il n'utilise pas d'outil de mesure d'audience ni de publicité.</p>
-        <p>Si vous nous contactez par email ou par téléphone, nous utilisons uniquement les informations que vous nous transmettez :</p>
+        <p>Uniquement celles que vous nous transmettez, via le formulaire « Demander un devis », par email ou par téléphone :</p>
         <ul>
           <li>votre nom et prénom ;</li>
-          <li>vos coordonnées (email, téléphone) ;</li>
           <li>le nom et l'activité de votre entreprise ;</li>
-          <li>le contenu de vos messages.</li>
+          <li>votre adresse email ;</li>
+          <li>votre numéro de téléphone (facultatif) ;</li>
+          <li>le contenu de votre message.</li>
         </ul>
+        <p>Aucune autre donnée n'est collectée à votre insu. Le site n'utilise pas d'outil de mesure d'audience ni de publicité.</p>
 
         <h2>Pourquoi ?</h2>
         <p>Pour répondre à votre demande, vous recontacter et, si vous le souhaitez, établir un devis. La base légale est l'exécution de mesures précontractuelles prises à votre demande (article 6.1.b du RGPD).</p>
         <p>Vos données ne sont jamais vendues, louées ni utilisées pour de la prospection publicitaire.</p>
 
         <h2>Qui y a accès ?</h2>
-        <p>Uniquement l'équipe LOOP. Vos données ne sont jamais transmises à des tiers à des fins commerciales.</p>
-        <p>Le site est hébergé par <strong>Netlify, Inc.</strong> (États-Unis), qui enregistre des journaux techniques (adresse IP, date de visite) nécessaires à sa sécurité. Ce transfert hors de l'Union européenne est encadré par les clauses contractuelles types de la Commission européenne et, le cas échéant, par le cadre de protection des données UE–États-Unis (Data Privacy Framework).</p>
+        <p>Uniquement l'équipe LOOP. Pour fonctionner, le site fait appel à deux prestataires techniques :</p>
+        <ul>
+          <li><strong>Formspree, Inc.</strong> (États-Unis), qui transmet les messages du formulaire jusqu'à notre boîte email ;</li>
+          <li><strong>Netlify, Inc.</strong> (États-Unis), qui héberge le site et enregistre des journaux techniques (adresse IP, date de visite) nécessaires à sa sécurité.</li>
+        </ul>
+        <p>Ces transferts hors de l'Union européenne sont encadrés par les clauses contractuelles types de la Commission européenne et, le cas échéant, par le cadre de protection des données UE–États-Unis (Data Privacy Framework).</p>
 
         <h2>Combien de temps ?</h2>
         <ul>
@@ -133,7 +138,7 @@
         <h2 class="footer-title split">Parlons de votre projet.</h2>
         <p class="footer-lead reveal" style="--d:1">Un appel ou un email suffit. Nous vous répondons sous 48 heures ouvrées.</p>
         <div class="footer-actions reveal" style="--d:2">
-          <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis">
+          <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" data-quote>
             Demander un devis
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
           </a>
@@ -169,7 +174,7 @@
         </nav>
       </div>
 
-      <!-- Grand logo : il se dessine à l'arrivée, puis un point lumineux tourne dans la boucle -->
+      <!-- Grand logo qui se dessine quand on arrive en bas de page -->
       <svg class="footer-wordmark" data-reveal-self viewBox="22 66 419 118" width="419" height="118" aria-hidden="true" focusable="false">
         <mask id="m-foot" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
           <rect width="600" height="300" fill="#fff"/>
@@ -180,7 +185,6 @@
           <path class="draw p-loop" pathLength="1" mask="url(#m-foot)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
           <path class="draw p-cross" pathLength="1" d="M210,143 L242,107"/>
           <path class="draw p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
-          <path class="comet" pathLength="1" mask="url(#m-foot)" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
         </g>
       </svg>
 
@@ -194,5 +198,95 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======================================================================
+       FENÊTRE « DEMANDER UN DEVIS »
+       S'ouvre au clic sur tous les boutons « Demander un devis » (attribut
+       data-quote). Envoi via Formspree : remplacez [FORMSPREE_ID] (README).
+       Sans JavaScript, ces boutons ouvrent simplement un email.
+       ====================================================================== -->
+  <dialog class="quote" id="devis" aria-labelledby="titre-devis" data-quote-dialog>
+    <div class="quote-panel">
+      <div class="quote-head">
+        <svg class="quote-symbol" viewBox="99 73 254 104" width="254" height="104" aria-hidden="true" focusable="false">
+          <mask id="m-quote" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/></mask>
+          <g fill="none" stroke="currentColor" stroke-width="18">
+            <path class="q-loop" pathLength="1" mask="url(#m-quote)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="q-cross" pathLength="1" d="M209,144 L243,106"/>
+          </g>
+        </svg>
+        <button class="quote-close" type="button" data-quote-close>
+          <span class="sr-only">Fermer</span>
+          <i aria-hidden="true"></i><i aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="quote-body" data-quote-form-wrap>
+        <h2 class="quote-title" id="titre-devis">Demander un devis</h2>
+        <p class="quote-lead">Décrivez votre besoin en quelques lignes. Nous vous répondons sous 48 heures ouvrées, gratuitement et sans engagement.</p>
+
+        <form class="form" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis depuis le site LOOP">
+          <!-- Champ piège pour les robots : laissé vide par les humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Ne pas remplir</label>
+            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="f-nom">Nom et prénom</label>
+            <input id="f-nom" name="nom" type="text" autocomplete="name" required aria-describedby="e-nom">
+            <p class="field-error" id="e-nom" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-activite">Entreprise et activité</label>
+            <input id="f-activite" name="activite" type="text" placeholder="Ex. : Dupont &amp; Fils" autocomplete="organization" required aria-describedby="e-activite">
+            <p class="field-error" id="e-activite" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+            <p class="field-error" id="e-email" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
+            <input id="f-tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field field--full">
+            <label for="f-message">Votre besoin</label>
+            <textarea id="f-message" name="message" rows="4" placeholder="Ex. : 3 salariés, un fichier Excel pour le stock, nous voudrions savoir ce qui part sur chaque chantier." required aria-describedby="e-message"></textarea>
+            <p class="field-error" id="e-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn" type="submit">
+              <span data-submit-label>Envoyer ma demande</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form-legal">
+              Vos informations servent uniquement à répondre à votre demande. En savoir plus :
+              <a href="confidentialite.html">politique de confidentialité</a>.
+              Vous préférez appeler ? <a href="tel:+33783539645">07 83 53 96 45</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Message affiché après l'envoi -->
+      <div class="quote-success" data-quote-success hidden tabindex="-1">
+        <svg class="quote-success-symbol" viewBox="99 73 254 104" width="254" height="104" aria-hidden="true" focusable="false">
+          <mask id="m-quote-ok" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/></mask>
+          <g fill="none" stroke="currentColor" stroke-width="18">
+            <path class="q-loop" pathLength="1" mask="url(#m-quote-ok)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="q-cross" pathLength="1" d="M209,144 L243,106"/>
+          </g>
+        </svg>
+        <h2>Merci, c'est bien reçu.</h2>
+        <p>Nous vous répondons sous 48 heures ouvrées.</p>
+        <button class="btn btn--outline" type="button" data-quote-close>Fermer</button>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

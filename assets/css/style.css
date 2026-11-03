@@ -19,6 +19,7 @@
    15. Offre
    16. FAQ
    17. Pied de page (appel à l'action + grand logo)
+   17b. Fenêtre « Demander un devis » et formulaire
    18. Pages légales
    19. Animations au défilement
    20. Préférence « réduire les animations »
@@ -645,17 +646,31 @@ p { text-wrap: pretty; }
 @media (min-width: 1080px) {
   .hero-loop { width: 92vw; transform: translate(-30%, -50%); }
 }
-.hero-loop path { fill: none; stroke-width: 7; stroke-linecap: round; }
-.hero-loop .track { stroke: var(--c-dark-track); }
-.hero-loop .comet {
-  stroke: var(--c-white);
-  stroke-dasharray: 0.06 0.94;
-  stroke-dashoffset: 0;
-  opacity: 0.55;
-  animation: comet-run 11s linear infinite;
+.hero-loop path {
+  fill: none;
+  stroke-linecap: round;
 }
-.hero-loop .comet--2 { opacity: 0.22; animation-delay: -5.5s; }
-@keyframes comet-run { to { stroke-dashoffset: -1; } }
+/* Épaisseurs en unités du dessin (le symbole est agrandi ≈ 5×) */
+.hero-loop .track { stroke: #262626; stroke-width: 0.3; }
+
+/* La lumière : plusieurs segments de longueurs différentes partent du même
+   point et avancent ensemble ; les plus longs, plus transparents, forment
+   la traînée. */
+.hero-loop .trail {
+  stroke: var(--c-white);
+  stroke-width: 0.35;
+  opacity: var(--o);
+  /* motif « vide puis trait » : tous les traits finissent au même point,
+     la tête de la lumière */
+  stroke-dasharray: 0 calc(1 - var(--len)) var(--len) 0;
+  animation: trail-run 9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+.hero-loop .trail--head { stroke-width: 0.6; }
+.hero-loop .trail--glow { stroke-width: 2.4; }
+@keyframes trail-run {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -1; }
+}
 
 .hero-grid {
   display: grid;
@@ -1425,7 +1440,7 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
 .footer-col li { color: var(--c-white); text-decoration: none; font-size: 0.9375rem; }
 .footer-col a.link::after { bottom: 4px; }
 
-/* Grand logo qui se dessine en bas de page, puis un reflet tourne dans la boucle */
+/* Grand logo qui se dessine en bas de page */
 .footer-wordmark {
   width: 100%;
   height: auto;
@@ -1444,17 +1459,6 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
 .js .footer-wordmark .p-p { transition-duration: 1.4s; transition-delay: 0.5s; }
 .js .footer-wordmark.is-visible .draw { stroke-dashoffset: 0; }
 
-.footer-wordmark .comet {
-  stroke: #6a6a6a;
-  stroke-dasharray: 0.05 0.95;
-  opacity: 0;
-}
-.js .footer-wordmark.is-visible .comet {
-  opacity: 1;
-  transition: opacity 0.6s ease 2.2s;
-  animation: comet-run 7s linear 2.2s infinite;
-}
-.no-js .footer-wordmark .comet { display: none; }
 
 .footer-bottom {
   display: flex;
@@ -1469,6 +1473,215 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
 .footer-bottom ul { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .footer-bottom a { text-decoration: none; }
 .footer-bottom a:hover { color: var(--c-white); }
+
+
+/* 17b. Fenêtre « Demander un devis » ---------------------------------------
+   Élément <dialog> natif : clavier, touche Échap et lecteurs d'écran gérés
+   par le navigateur. Sur téléphone, le panneau monte depuis le bas ; sur
+   ordinateur, il apparaît au centre. */
+body.quote-open { overflow: hidden; }
+
+.quote {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--c-text);
+  overflow: hidden;
+}
+.quote::backdrop {
+  background: rgba(5, 5, 5, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.quote.is-open::backdrop { opacity: 1; }
+
+.quote-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 94svh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px var(--gutter) calc(32px + env(safe-area-inset-bottom));
+  background: var(--c-white);
+  border-radius: 20px 20px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.7s var(--ease-out);
+}
+.quote.is-open .quote-panel { transform: none; }
+
+@media (min-width: 760px) {
+  .quote-panel {
+    left: 50%;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    width: min(760px, 92vw);
+    max-height: 90vh;
+    padding: 32px 48px 44px;
+    border-radius: 16px;
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 48px)) scale(0.98);
+    transition: transform 0.8s var(--ease-out), opacity 0.4s ease;
+  }
+  .quote.is-open .quote-panel { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.quote-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.quote-symbol { width: 48px; height: auto; overflow: visible; }
+.quote.is-done .quote-symbol { visibility: hidden; }  /* le grand symbole de remerciement suffit */
+
+/* Le symbole se dessine à l'ouverture */
+.quote-symbol g path,
+.quote-success-symbol g path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.quote.is-open .quote-symbol .q-loop { animation: draw 1.2s var(--ease-inout) 0.2s forwards; }
+.quote.is-open .quote-symbol .q-cross { animation: draw 0.3s var(--ease-out) 1.25s forwards; }
+
+.quote-close {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.5s var(--ease-out);
+}
+.quote-close:hover { background: var(--c-soft); transform: rotate(90deg); }
+.quote-close i {
+  position: absolute;
+  top: 21px;
+  left: 12px;
+  width: 20px;
+  height: 1.5px;
+  background: var(--c-black);
+  transform: rotate(45deg);
+}
+.quote-close i + i { transform: rotate(-45deg); }
+
+.quote-title {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.quote-lead {
+  margin: 14px 0 32px;
+  color: var(--c-text-2);
+  max-width: 36em;
+}
+
+/* Les champs apparaissent l'un après l'autre */
+.quote .field,
+.quote .form-foot {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.8s var(--ease-out);
+}
+.quote.is-open .field,
+.quote.is-open .form-foot { opacity: 1; transform: none; }
+.quote.is-open .field:nth-of-type(2) { transition-delay: 0.15s; }
+.quote.is-open .field:nth-of-type(3) { transition-delay: 0.2s; }
+.quote.is-open .field:nth-of-type(4) { transition-delay: 0.25s; }
+.quote.is-open .field:nth-of-type(5) { transition-delay: 0.3s; }
+.quote.is-open .field:nth-of-type(6) { transition-delay: 0.35s; }
+.quote.is-open .form-foot { transition-delay: 0.4s; }
+
+/* Message de remerciement */
+.quote-success {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  padding-block: 24px 8px;
+}
+.quote-success[hidden] { display: none; }
+.quote-success:focus { outline: none; }
+.quote-success-symbol { width: 96px; height: auto; margin-bottom: 8px; overflow: visible; }
+.quote-success .q-loop { animation: draw 1.4s var(--ease-inout) forwards; }
+.quote-success .q-cross { animation: draw 0.3s var(--ease-out) 1.3s forwards; }
+.quote-success h2 {
+  font-size: clamp(2rem, 3vw + 1rem, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+.quote-success p { color: var(--c-text-2); margin-bottom: 16px; }
+
+/* Formulaire */
+.form { display: grid; gap: 24px; }
+@media (min-width: 640px) {
+  .form { grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  .form .field--full,
+  .form .form-foot { grid-column: 1 / -1; }
+}
+
+.field { display: grid; gap: 6px; align-content: start; }
+.field label { font-size: var(--fs-small); font-weight: 500; }
+.field label .opt { font-weight: 400; color: var(--c-text-3); }
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--c-line-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1.0625rem;      /* ≥ 16 px : évite le zoom automatique sur iPhone */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field textarea { min-height: 112px; resize: vertical; line-height: 1.55; }
+.field input::placeholder,
+.field textarea::placeholder { color: #8f8f8f; }
+.field input:hover,
+.field textarea:hover { border-bottom-color: var(--c-text-3); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--c-black);
+  box-shadow: 0 1px 0 0 var(--c-black);
+}
+
+.field-error {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--c-black);
+}
+.field-error:empty { display: none; }
+.field-error::before { content: "— "; }
+.field.has-error input,
+.field.has-error textarea { border-bottom: 2px solid var(--c-black); }
+
+/* Champ anti-robots invisible */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-foot { display: grid; gap: 16px; }
+.form-legal { font-size: 0.8125rem; color: var(--c-text-3); line-height: 1.6; }
+.form-legal a { color: var(--c-text-2); }
+.form .btn { justify-self: start; }
+.form .btn[disabled] { opacity: 0.6; cursor: progress; }
+
+.form-status {
+  padding: 16px 18px;
+  border: 1px solid var(--c-black);
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+.form-status:empty { display: none; }
 
 
 /* 18. Pages légales ------------------------------------------------------- */
@@ -1651,8 +1864,7 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
     transition-delay: 0s !important;
   }
   .has-intro .intro { display: none; }
-  .hero-loop .comet,
-  .footer-wordmark .comet,
+  .hero-loop .trail,
   .scroll-cue i::after { display: none; }
   .statement-text .word { color: var(--c-white); }
   .step { opacity: 1; }

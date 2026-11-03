@@ -14,7 +14,8 @@
    9.  Bandeau noir : il s'élargit, puis les mots s'éclairent
    10. Méthode : le symbole se dessine au fil des étapes
    11. Bandeau de mots qui glissent
-   12. Année du pied de page
+   12. Fenêtre « Demander un devis » et formulaire (Formspree)
+   13. Année du pied de page
    ========================================================================== */
 (function () {
   "use strict";
@@ -333,7 +334,119 @@
   }
 
 
-  /* 12. Année du pied de page ----------------------------------------------- */
+  /* 12. Fenêtre « Demander un devis » --------------------------------------- */
+  var quote = document.querySelector("[data-quote-dialog]");
+  if (quote && typeof quote.showModal === "function") {
+    var formWrap = quote.querySelector("[data-quote-form-wrap]");
+    var success = quote.querySelector("[data-quote-success]");
+    var form = quote.querySelector("[data-form]");
+    var opener = null;
+
+    var openQuote = function () {
+      formWrap.hidden = false;
+      success.hidden = true;
+      quote.classList.remove("is-done");
+      quote.showModal();
+      document.body.classList.add("quote-open");
+      if (lenis) lenis.stop();
+      // Laisse le navigateur afficher la fenêtre avant de lancer l'animation
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { quote.classList.add("is-open"); });
+      });
+    };
+    var closeQuote = function () {
+      quote.classList.remove("is-open");
+      window.setTimeout(function () {
+        quote.close();
+        document.body.classList.remove("quote-open");
+        if (lenis) lenis.start();
+        if (opener) opener.focus();
+      }, reduceMotion ? 0 : 450);
+    };
+
+    document.querySelectorAll("[data-quote]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        opener = btn;
+        if (document.body.classList.contains("nav-open") && toggle) toggle.click();
+        openQuote();
+      });
+    });
+    quote.querySelectorAll("[data-quote-close]").forEach(function (btn) {
+      btn.addEventListener("click", closeQuote);
+    });
+    // Clic sur le fond sombre : fermeture
+    quote.addEventListener("click", function (e) { if (e.target === quote) closeQuote(); });
+    // Touche Échap : fermeture animée
+    quote.addEventListener("cancel", function (e) { e.preventDefault(); closeQuote(); });
+
+    // --- Envoi du formulaire (Formspree) ---
+    form.noValidate = true; // validation gérée ici, avec des messages en français
+    var status = form.querySelector("[data-form-status]");
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var submitLabel = form.querySelector("[data-submit-label]");
+    var messages = {
+      nom: "Indiquez votre nom.",
+      activite: "Indiquez votre entreprise ou votre activité.",
+      email: "Indiquez une adresse email valide (ex. : nom@exemple.fr).",
+      message: "Écrivez quelques mots sur votre besoin."
+    };
+
+    var showError = function (input, message) {
+      var error = document.getElementById("e-" + input.id.replace("f-", ""));
+      input.closest(".field").classList.toggle("has-error", Boolean(message));
+      input.setAttribute("aria-invalid", message ? "true" : "false");
+      if (error) error.textContent = message || "";
+    };
+    var validate = function () {
+      var firstInvalid = null;
+      form.querySelectorAll("[required]").forEach(function (input) {
+        var ok = input.value.trim() !== "" && input.checkValidity();
+        showError(input, ok ? "" : messages[input.name]);
+        if (!ok && !firstInvalid) firstInvalid = input;
+      });
+      if (firstInvalid) firstInvalid.focus();
+      return !firstInvalid;
+    };
+
+    form.addEventListener("input", function (e) {
+      if (e.target.closest(".has-error") && e.target.checkValidity() && e.target.value.trim()) showError(e.target, "");
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      status.textContent = "";
+      if (!validate()) return;
+
+      // Rappel pour la mise en ligne : identifiant Formspree pas encore renseigné
+      if (form.action.indexOf("FORMSPREE_ID") !== -1) {
+        status.textContent = "Formulaire pas encore relié : remplacez [FORMSPREE_ID] (voir README). En attendant, écrivez-nous à contact@loop.fr.";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitLabel.textContent = "Envoi en cours…";
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Erreur " + response.status);
+          form.reset();
+          formWrap.hidden = true;
+          success.hidden = false;
+          quote.classList.add("is-done");
+          success.focus();
+        })
+        .catch(function () {
+          status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-nous à contact@loop.fr.";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitLabel.textContent = "Envoyer ma demande";
+        });
+    });
+  }
+
+
+  /* 13. Année du pied de page ----------------------------------------------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });

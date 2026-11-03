@@ -60,7 +60,7 @@
         </div>
       </nav>
 
-      <a class="btn btn--small header-cta" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" aria-label="Demander un devis par email">
+      <a class="btn btn--small header-cta" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" aria-label="Demander un devis" data-quote>
         <span class="only-desktop">Demander un devis</span><span class="only-mobile">Devis</span>
       </a>
 
@@ -133,7 +133,7 @@
         <h2 class="footer-title split">Parlons de votre projet.</h2>
         <p class="footer-lead reveal" style="--d:1">Un appel ou un email suffit. Nous vous répondons sous 48 heures ouvrées.</p>
         <div class="footer-actions reveal" style="--d:2">
-          <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis">
+          <a class="btn btn--light" href="mailto:contact@loop.fr?subject=Demande%20de%20devis" data-quote>
             Demander un devis
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
           </a>
@@ -169,7 +169,7 @@
         </nav>
       </div>
 
-      <!-- Grand logo : il se dessine à l'arrivée, puis un point lumineux tourne dans la boucle -->
+      <!-- Grand logo qui se dessine quand on arrive en bas de page -->
       <svg class="footer-wordmark" data-reveal-self viewBox="22 66 419 118" width="419" height="118" aria-hidden="true" focusable="false">
         <mask id="m-foot" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
           <rect width="600" height="300" fill="#fff"/>
@@ -180,7 +180,6 @@
           <path class="draw p-loop" pathLength="1" mask="url(#m-foot)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
           <path class="draw p-cross" pathLength="1" d="M210,143 L242,107"/>
           <path class="draw p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
-          <path class="comet" pathLength="1" mask="url(#m-foot)" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
         </g>
       </svg>
 
@@ -194,5 +193,95 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======================================================================
+       FENÊTRE « DEMANDER UN DEVIS »
+       S'ouvre au clic sur tous les boutons « Demander un devis » (attribut
+       data-quote). Envoi via Formspree : remplacez [FORMSPREE_ID] (README).
+       Sans JavaScript, ces boutons ouvrent simplement un email.
+       ====================================================================== -->
+  <dialog class="quote" id="devis" aria-labelledby="titre-devis" data-quote-dialog>
+    <div class="quote-panel">
+      <div class="quote-head">
+        <svg class="quote-symbol" viewBox="99 73 254 104" width="254" height="104" aria-hidden="true" focusable="false">
+          <mask id="m-quote" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/></mask>
+          <g fill="none" stroke="currentColor" stroke-width="18">
+            <path class="q-loop" pathLength="1" mask="url(#m-quote)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="q-cross" pathLength="1" d="M209,144 L243,106"/>
+          </g>
+        </svg>
+        <button class="quote-close" type="button" data-quote-close>
+          <span class="sr-only">Fermer</span>
+          <i aria-hidden="true"></i><i aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="quote-body" data-quote-form-wrap>
+        <h2 class="quote-title" id="titre-devis">Demander un devis</h2>
+        <p class="quote-lead">Décrivez votre besoin en quelques lignes. Nous vous répondons sous 48 heures ouvrées, gratuitement et sans engagement.</p>
+
+        <form class="form" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis depuis le site LOOP">
+          <!-- Champ piège pour les robots : laissé vide par les humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Ne pas remplir</label>
+            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="f-nom">Nom et prénom</label>
+            <input id="f-nom" name="nom" type="text" autocomplete="name" required aria-describedby="e-nom">
+            <p class="field-error" id="e-nom" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-activite">Entreprise et activité</label>
+            <input id="f-activite" name="activite" type="text" placeholder="Ex. : Dupont &amp; Fils" autocomplete="organization" required aria-describedby="e-activite">
+            <p class="field-error" id="e-activite" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+            <p class="field-error" id="e-email" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
+            <input id="f-tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field field--full">
+            <label for="f-message">Votre besoin</label>
+            <textarea id="f-message" name="message" rows="4" placeholder="Ex. : 3 salariés, un fichier Excel pour le stock, nous voudrions savoir ce qui part sur chaque chantier." required aria-describedby="e-message"></textarea>
+            <p class="field-error" id="e-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn" type="submit">
+              <span data-submit-label>Envoyer ma demande</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form-legal">
+              Vos informations servent uniquement à répondre à votre demande. En savoir plus :
+              <a href="confidentialite.html">politique de confidentialité</a>.
+              Vous préférez appeler ? <a href="tel:+33783539645">07 83 53 96 45</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Message affiché après l'envoi -->
+      <div class="quote-success" data-quote-success hidden tabindex="-1">
+        <svg class="quote-success-symbol" viewBox="99 73 254 104" width="254" height="104" aria-hidden="true" focusable="false">
+          <mask id="m-quote-ok" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/></mask>
+          <g fill="none" stroke="currentColor" stroke-width="18">
+            <path class="q-loop" pathLength="1" mask="url(#m-quote-ok)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path class="q-cross" pathLength="1" d="M209,144 L243,106"/>
+          </g>
+        </svg>
+        <h2>Merci, c'est bien reçu.</h2>
+        <p>Nous vous répondons sous 48 heures ouvrées.</p>
+        <button class="btn btn--outline" type="button" data-quote-close>Fermer</button>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

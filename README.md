@@ -18,7 +18,7 @@ cgv.html                 Conditions générales de vente (plan à compléter)
 assets/css/style.css     Toute la mise en forme. Les couleurs, tailles et espacements
                          sont réglés dans les variables en haut du fichier
 assets/js/intro.js       Choisit si l'animation d'ouverture est jouée (une fois par visite)
-assets/js/main.js        Menu mobile, animations au défilement, défilement fluide
+assets/js/main.js        Menu mobile, animations, défilement fluide, fenêtre de devis
 assets/js/vendor/        Lenis (défilement fluide, licence MIT)
 assets/fonts/            Police Inter, hébergée sur le site (pas d'appel à Google)
 assets/img/logo/         Logos LOOP (SVG) et favicon
@@ -41,6 +41,7 @@ Restent à compléter :
 
 | Repère | Exemple | Où |
 | --- | --- | --- |
+| `[FORMSPREE_ID]` | `xyzabcde` | dans chaque page HTML (fenêtre de devis) |
 | `[ADRESSE POSTALE]` | adresse de domiciliation | mentions légales, confidentialité |
 | `[SIRET À COMPLÉTER]` | 14 chiffres | mentions légales |
 
@@ -53,14 +54,26 @@ Sur les pages légales, les repères sont surlignés en pointillés : ils dispar
 Ces phrases vous engagent auprès de vos clients. Gardez-les seulement si elles sont vraies :
 
 - FAQ : « hébergées en Europe », « sauvegardes chaque jour », « récupérer vos données dans un fichier Excel », « quelques semaines de mise en place ».
-- Pied de page : « Nous vous répondons sous 48 heures ouvrées ».
+- Pied de page et fenêtre de devis : « Nous vous répondons sous 48 heures ouvrées ».
 - Mentions légales : l'adresse de Netlify (vérifiez-la sur netlify.com au moment de la mise en ligne).
-- Confidentialité : les garanties de transfert hors UE de Netlify (voir sa page « DPA »).
+- Confidentialité : les garanties de transfert hors UE de Formspree et Netlify (voir leurs pages « DPA »).
 - CGV : la page contient uniquement un plan. Faites rédiger ou relire le texte final par un professionnel.
 
 ---
 
-## 3. Voir le site sur votre ordinateur
+## 3. Relier le formulaire de devis (Formspree)
+
+Tous les boutons « Demander un devis » ouvrent une fenêtre avec un formulaire. Le site n'a pas de serveur : c'est Formspree qui reçoit les demandes et vous les envoie par email.
+
+1. Créez un compte gratuit sur [formspree.io](https://formspree.io) avec votre email professionnel.
+2. Cliquez sur **New Form** et nommez-le « Site LOOP ».
+3. Formspree affiche une adresse du type `https://formspree.io/f/xyzabcde`. La fin (`xyzabcde`) est votre identifiant.
+4. Remplacez `[FORMSPREE_ID]` par cet identifiant **dans toutes les pages HTML** (recherche-remplacement, voir section 2).
+5. Après la mise en ligne, envoyez-vous une demande de test. Le premier envoi demande de confirmer votre email.
+
+Sans JavaScript, les boutons « Demander un devis » ouvrent simplement un email vers contact@loop.fr.
+
+## 4. Voir le site sur votre ordinateur
 
 **Le plus simple :** double-cliquez sur `index.html`. Le site s'ouvre dans votre navigateur.
 
@@ -76,7 +89,7 @@ Pour revoir l'animation d'ouverture, fermez l'onglet et rouvrez le site (elle n'
 
 ---
 
-## 4. Mettre le site en ligne gratuitement (GitHub + Netlify)
+## 5. Mettre le site en ligne gratuitement (GitHub + Netlify)
 
 ### Étape 1 · Mettre le code sur GitHub
 
@@ -120,7 +133,7 @@ Créez un compte [Google Search Console](https://search.google.com/search-consol
 
 ---
 
-## 5. Modifier le site
+## 6. Modifier le site
 
 | Je veux… | Où |
 | --- | --- |
@@ -134,13 +147,13 @@ Créez un compte [Google Search Console](https://search.google.com/search-consol
 
 ---
 
-## 6. Choix techniques
+## 7. Choix techniques
 
 - **Noir, blanc et gris uniquement.** Les contrastes de texte respectent les recommandations d'accessibilité (WCAG AA).
 - **Animations** : logo qui se dessine à l'ouverture, point lumineux qui tourne sans fin dans le symbole de l'accueil, logo de l'en-tête qui se redessine au survol, section « Ce que fait LOOP » où le logo se trace pendant le défilement, titres qui apparaissent mot par mot, bandeau noir qui s'élargit, mots qui glissent selon le défilement, cartes qui passent en noir au survol, grand logo animé en bas de page. Elles sont **toutes désactivées** si le visiteur l'a demandé dans les réglages de son téléphone ou ordinateur (« réduire les animations »).
 - **Sans JavaScript**, tout le contenu reste visible.
 - **Défilement fluide** grâce à Lenis (hébergé sur le site, licence MIT).
 - **Police Inter hébergée sur le site** : plus rapide, et aucune donnée de visiteur n'est envoyée à Google (pas de bandeau cookies nécessaire).
-- **Aucun cookie**, aucun outil de suivi, aucun formulaire : les demandes de devis passent par email ou téléphone.
+- **Aucun cookie**, aucun outil de suivi. Les demandes de devis passent par une fenêtre avec formulaire (Formspree).
 - **Accessibilité** : balises sémantiques, lien « Aller au contenu », navigation au clavier, textes alternatifs.
 - **SEO** : titre et description par page, Open Graph (aperçu lors d'un partage), données structurées, sitemap.
