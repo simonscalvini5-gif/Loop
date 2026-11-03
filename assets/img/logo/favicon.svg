@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon LOOP : symbole blanc sur carré noir arrondi -->
+  <rect width="64" height="64" rx="14" fill="#111111"/>
+  <g transform="translate(32 32) scale(0.17) translate(-226 -125)">
+    <mask id="c" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/></mask>
+    <path d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z" fill="none" stroke="#fff" stroke-width="20" stroke-linejoin="round" mask="url(#c)"/>
+    <path d="M209,144 L243,106" fill="none" stroke="#fff" stroke-width="20"/>
+  </g>
+</svg>

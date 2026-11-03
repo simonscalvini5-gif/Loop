@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ========== SEO : titre et description affichés par Google ========== -->
+  <title>LOOP · Applications sur mesure pour artisans, à la place d'Excel</title>
+  <meta name="description" content="LOOP crée des applications sur mesure pour les artisans : fournisseurs, stock, alertes de réapprovisionnement et dépenses par chantier. Reprise de vos fichiers Excel, utilisable sur téléphone, accompagnement humain.">
+  <link rel="canonical" href="https://[DOMAINE]/">
+  <meta name="theme-color" content="#111111">
+
+  <!-- ========== Partage sur les réseaux (Open Graph) ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="LOOP">
+  <meta property="og:title" content="LOOP · Remplacez vos fichiers Excel par une application faite pour votre métier">
+  <meta property="og:description" content="Fournisseurs, stock, alertes et dépenses par chantier au même endroit, sur ordinateur comme sur téléphone.">
+  <meta property="og:url" content="https://[DOMAINE]/">
+  <meta property="og:image" content="https://[DOMAINE]/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo LOOP et le message : Remplacez vos fichiers Excel par une application faite pour votre métier.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ========== Icônes ========== -->
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/img/logo/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- ========== Police, styles et scripts ========== -->
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/intro.js"></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- ========== Données structurées pour Google (à compléter) ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "LOOP",
+    "description": "Applications web sur mesure pour les artisans : gestion des fournisseurs, du stock, alertes de réapprovisionnement et tableaux de bord.",
+    "url": "https://[DOMAINE]/",
+    "logo": "https://[DOMAINE]/assets/img/logo/loop-logo-noir.png",
+    "email": "[EMAIL]",
+    "telephone": "[TÉLÉPHONE_LIEN]",
+    "areaServed": "[ZONE GÉOGRAPHIQUE]"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ======================================================================
+       ÉCRAN D'INTRODUCTION : le logo LOOP se dessine, puis le rideau se lève.
+       Purement décoratif (masqué aux lecteurs d'écran).
+       ====================================================================== -->
+  <div class="intro" aria-hidden="true">
+    <svg class="intro-logo" viewBox="22 74 419 102" width="419" height="102" focusable="false">
+      <mask id="m-intro" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+        <rect width="600" height="300" fill="#fff"/>
+        <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
+      </mask>
+      <path class="p-l" pathLength="1" d="M30,74 V168 H86" stroke-width="16" stroke-linejoin="miter"/>
+      <path class="p-loop" pathLength="1" mask="url(#m-intro)" stroke-width="16" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+      <path class="p-cross" pathLength="1" d="M210,143 L242,107" stroke-width="16"/>
+      <path class="p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374" stroke-width="16" stroke-linejoin="miter"/>
+    </svg>
+  </div>
+
+  <!-- ======================================================================
+       EN-TÊTE
+       ====================================================================== -->
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="LOOP, retour à l'accueil">
+        <svg viewBox="22 74 419 102" width="419" height="102" aria-hidden="true" focusable="false">
+          <mask id="m-head" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+            <rect width="600" height="300" fill="#fff"/>
+            <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
+          </mask>
+          <g fill="none" stroke="currentColor" stroke-width="16">
+            <path d="M30,74 V168 H86"/>
+            <path mask="url(#m-head)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+            <path d="M210,143 L242,107"/>
+            <path d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+          </g>
+        </svg>
+      </a>
+
+      <nav class="nav" id="menu" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="#probleme">Le problème</a></li>
+          <li><a href="#solution">La solution</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#offre">Offre</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-contact">
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+          <a href="tel:[TÉLÉPHONE_LIEN]">[TÉLÉPHONE]</a>
+        </div>
+      </nav>
+
+      <a class="btn btn--small" href="#contact" aria-label="Demander un devis">
+        <span class="only-desktop">Demander un devis</span><span class="only-mobile">Devis</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="sr-only" data-label>Ouvrir le menu</span>
+        <i class="bar" aria-hidden="true"></i>
+        <i class="bar" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ====================================================================
+         1. ACCUEIL
+         ==================================================================== -->
+    <section class="hero" aria-labelledby="titre-accueil">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow hero-fade" style="--i:0">Applications sur mesure pour artisans</p>
+
+          <h1 class="hero-title" id="titre-accueil">
+            <span class="line"><span style="--i:0">Remplacez vos fichiers Excel</span></span>
+            <span class="line line--muted"><span style="--i:1">par une application faite pour votre métier.</span></span>
+          </h1>
+
+          <p class="lead hero-lead hero-fade" style="--i:1">
+            Fournisseurs, stock, commandes et dépenses au même endroit, sur ordinateur
+            comme sur téléphone. Conçue avec vous, à partir de vos fichiers actuels.
+          </p>
+
+          <div class="hero-actions hero-fade" style="--i:2">
+            <a class="btn" href="#contact">
+              Demander un devis
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+            </a>
+            <a class="link" href="#methode">
+              Voir comment ça marche
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 1v13M3 9l5 5 5-5"/></svg>
+            </a>
+          </div>
+
+          <p class="hero-note hero-fade" style="--i:3">
+            Pour les plombiers, électriciens, menuisiers et tous les artisans du bâtiment.
+            Intervention : [ZONE GÉOGRAPHIQUE].
+          </p>
+        </div>
+
+        <!-- Maquette stylisée : exemple de tableau de bord + téléphone.
+             Les chiffres sont fictifs. -->
+        <div class="hero-visual parallax" data-parallax="0.06">
+          <div class="mockup mockup-in" role="img" aria-label="Exemple d'application LOOP : tableau de bord avec les dépenses du mois, les articles en stock bas et les dépenses par fournisseur, et sur téléphone une alerte de réapprovisionnement.">
+            <div class="mock-window" aria-hidden="true">
+              <div class="mock-bar"><i></i><i></i><i></i><b>Tableau de bord · Novembre</b></div>
+              <div class="mock-body">
+                <div class="mock-kpis">
+                  <div class="mock-kpi"><span>Dépenses du mois</span><strong>4 280 €</strong></div>
+                  <div class="mock-kpi"><span>Chantiers en cours</span><strong>5</strong></div>
+                  <div class="mock-kpi mock-kpi--dark"><span>Stock bas</span><strong>3 articles</strong></div>
+                </div>
+                <div class="mock-panels">
+                  <div class="mock-panel">
+                    <b>Dépenses par mois</b>
+                    <div class="mock-bars">
+                      <span style="--h:52%;--i:0"></span>
+                      <span style="--h:68%;--i:1"></span>
+                      <span style="--h:44%;--i:2"></span>
+                      <span style="--h:80%;--i:3"></span>
+                      <span style="--h:61%;--i:4"></span>
+                      <span style="--h:92%;--i:5"></span>
+                    </div>
+                    <div class="mock-months"><span>Juin</span><span>Juil.</span><span>Août</span><span>Sept.</span><span>Oct.</span><span>Nov.</span></div>
+                  </div>
+                  <div class="mock-panel">
+                    <b>Par fournisseur</b>
+                    <div class="mock-rows">
+                      <div class="mock-row">Négoce Sud<em>1 840 €</em><i style="--w:86%;--i:0"></i></div>
+                      <div class="mock-row">Électro Pro<em>1 120 €</em><i style="--w:54%;--i:1"></i></div>
+                      <div class="mock-row">Bois &amp; Co<em>790 €</em><i style="--w:38%;--i:2"></i></div>
+                      <div class="mock-row">Quincaillerie<em>530 €</em><i style="--w:24%;--i:3"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mock-phone" aria-hidden="true">
+              <b>Stock · Camion 1</b>
+              <div class="mock-item">Raccord laiton 15/21<em>24</em></div>
+              <div class="mock-item">Gaine ICTA 20 mm<em>3 rl.</em></div>
+              <div class="mock-item">Vis bois 4×40<em>2 bt.</em></div>
+              <div class="mock-alert"><strong>Seuil atteint</strong><span>Gaine ICTA : commander chez Électro Pro</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bandeau des métiers (la liste est répétée pour l'effet de défilement) -->
+    <div class="trades" aria-label="Métiers accompagnés">
+      <div class="trades-track">
+        <ul class="trades-list">
+          <li>Plombiers</li><li>Électriciens</li><li>Menuisiers</li><li>Chauffagistes</li>
+          <li>Carreleurs</li><li>Maçons</li><li>Peintres</li><li>Couvreurs</li><li>Serruriers</li><li>Paysagistes</li>
+        </ul>
+        <ul class="trades-list" aria-hidden="true">
+          <li>Plombiers</li><li>Électriciens</li><li>Menuisiers</li><li>Chauffagistes</li>
+          <li>Carreleurs</li><li>Maçons</li><li>Peintres</li><li>Couvreurs</li><li>Serruriers</li><li>Paysagistes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         2. LE PROBLÈME
+         ==================================================================== -->
+    <section class="section problem" id="probleme" aria-labelledby="titre-probleme">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">01 · Le problème</p>
+            <h2 class="reveal" style="--d:1" id="titre-probleme">Excel n'a pas été conçu pour un chantier.</h2>
+          </div>
+          <p class="lead reveal" style="--d:2">
+            Les tableurs rendent service au début. Puis l'activité grandit, les fichiers se
+            multiplient, et la gestion devient une deuxième journée de travail.
+          </p>
+        </div>
+
+        <ol class="problem-list">
+          <li class="problem-item reveal">
+            <span class="problem-num">01</span>
+            <h3>Des fichiers partout.</h3>
+            <p>Un tableau pour les fournisseurs, un autre pour le stock, un troisième pour les factures. Personne ne sait lequel est à jour.</p>
+          </li>
+          <li class="problem-item reveal">
+            <span class="problem-num">02</span>
+            <h3>Des erreurs qui coûtent cher.</h3>
+            <p>Une formule effacée, une ligne oubliée, et les chiffres ne veulent plus rien dire.</p>
+          </li>
+          <li class="problem-item reveal">
+            <span class="problem-num">03</span>
+            <h3>Un stock qu'on ne suit plus.</h3>
+            <p>On s'aperçoit qu'il manque des raccords une fois sur place. Retour chez le fournisseur, demi-journée perdue.</p>
+          </li>
+          <li class="problem-item reveal">
+            <span class="problem-num">04</span>
+            <h3>Du temps pris sur le métier.</h3>
+            <p>Les soirées passent à recopier des bons de livraison au lieu de préparer le lendemain.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. LA SOLUTION
+         ==================================================================== -->
+    <section class="section solution" id="solution" aria-labelledby="titre-solution">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">02 · La solution</p>
+            <h2 class="reveal" style="--d:1" id="titre-solution">Une seule application, pensée pour votre façon de travailler.</h2>
+          </div>
+          <p class="lead reveal" style="--d:2">
+            Pas un logiciel générique à apprivoiser : une application construite autour
+            de vos habitudes, avec seulement ce qui vous sert.
+          </p>
+        </div>
+
+        <ul class="features">
+          <li class="feature reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"><path d="M3 9h20v18H3zM23 15h8l6 6v6H23z"/><circle cx="10" cy="29" r="3" fill="#fff"/><circle cx="30" cy="29" r="3" fill="#fff"/></svg>
+            </span>
+            <h3>Fournisseurs</h3>
+            <p>Coordonnées, conditions, historique des achats : toutes les informations réunies sur une fiche.</p>
+          </li>
+          <li class="feature reveal" style="--d:1">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"><path d="M20 4l15 7v18l-15 7-15-7V11zM5 11l15 7 15-7M20 18v18M12.5 7.5l15 7"/></svg>
+            </span>
+            <h3>Consommables et stock</h3>
+            <p>Ce qui entre, ce qui sort, ce qui reste. Au dépôt comme dans le camion.</p>
+          </li>
+          <li class="feature reveal" style="--d:2">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"><path d="M11 28V18a9 9 0 0 1 18 0v10l3 3H8zM16.5 33a3.5 3.5 0 0 0 7 0M20 5v4"/></svg>
+            </span>
+            <h3>Alertes de réapprovisionnement</h3>
+            <p>Vous fixez un seuil, l'application vous prévient avant la rupture.</p>
+          </li>
+          <li class="feature reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25"><path d="M4 35h32M9 35V23M17 35V14M25 35V26M33 35V7"/></svg>
+            </span>
+            <h3>Tableaux de bord</h3>
+            <p>Vos dépenses par fournisseur, par chantier et par mois, en un coup d'œil.</p>
+          </li>
+          <li class="feature reveal" style="--d:1">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"><path d="M9 4h15l7 7v25H9zM24 4v7h7M20 15v14M14 23l6 6 6-6"/></svg>
+            </span>
+            <h3>Reprise de vos fichiers Excel</h3>
+            <p>Vos données existantes sont importées. Vous ne repartez pas de zéro.</p>
+          </li>
+          <li class="feature reveal" style="--d:2">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"><rect x="11" y="3" width="18" height="34" rx="3"/><path d="M17 32h6"/></svg>
+            </span>
+            <h3>Sur votre téléphone</h3>
+            <p>Consultez et mettez à jour depuis le chantier, sans rien installer de compliqué.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bandeau noir : les mots s'éclairent au fil du défilement -->
+    <section class="statement on-dark" aria-label="Notre principe">
+      <div class="container">
+        <img class="statement-symbol reveal" src="assets/img/logo/loop-symbole-blanc.svg" alt="" width="254" height="104">
+        <p class="statement-text" data-words>
+          Simple par principe : seulement ce dont vous avez besoin, rien de plus.
+          Et une vraie personne à qui parler quand vous avez une question.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. COMMENT ÇA MARCHE
+         ==================================================================== -->
+    <section class="section method" id="methode" aria-labelledby="titre-methode">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">03 · Comment ça marche</p>
+            <h2 class="reveal" style="--d:1" id="titre-methode">Quatre étapes, sans mauvaise surprise.</h2>
+          </div>
+          <p class="lead reveal" style="--d:2">
+            Vous savez à chaque étape ce qui se passe, ce que ça coûte et ce que vous
+            obtiendrez.
+          </p>
+        </div>
+
+        <div class="method-grid" data-method>
+          <!-- Le symbole LOOP se dessine au fur et à mesure des étapes -->
+          <div class="method-visual" aria-hidden="true">
+            <svg class="method-symbol" viewBox="99 73 254 104" width="254" height="104" focusable="false">
+              <mask id="m-method" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+                <rect width="600" height="300" fill="#fff"/>
+                <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="40"/>
+              </mask>
+              <g fill="none" stroke-width="18" stroke-linejoin="round">
+                <path class="track" mask="url(#m-method)" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+                <path class="track" d="M209,144 L243,106"/>
+                <path class="p-loop" pathLength="1" mask="url(#m-method)" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+                <path class="p-cross" pathLength="1" d="M209,144 L243,106"/>
+              </g>
+            </svg>
+            <p class="method-counter">Étape <strong data-step-current>01</strong> / 04</p>
+          </div>
+
+          <ol class="steps">
+            <li class="step" data-step="01">
+              <span class="step-num">01</span>
+              <h3>On échange.</h3>
+              <p>Vous me montrez vos fichiers et votre façon de travailler. Je pose des questions, j'écoute, je note ce qui vous fait perdre du temps.</p>
+              <span class="tag">Gratuit et sans engagement</span>
+            </li>
+            <li class="step" data-step="02">
+              <span class="step-num">02</span>
+              <h3>Je vous montre une maquette.</h3>
+              <p>Vous voyez à quoi ressemblera votre application avant que quoi que ce soit soit lancé. On ajuste ensemble, puis je vous remets un devis clair.</p>
+            </li>
+            <li class="step" data-step="03">
+              <span class="step-num">03</span>
+              <h3>On met en place.</h3>
+              <p>Paramétrage, import de vos fichiers Excel, prise en main avec vous et votre équipe. Vous démarrez avec vos propres données.</p>
+            </li>
+            <li class="step" data-step="04">
+              <span class="step-num">04</span>
+              <h3>Je vous accompagne.</h3>
+              <p>Une question, un besoin nouveau : vous m'appelez, on ajuste. L'application évolue avec votre entreprise.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. L'OFFRE
+         ==================================================================== -->
+    <section class="section offer" id="offre" aria-labelledby="titre-offre">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">04 · L'offre</p>
+            <h2 class="reveal" style="--d:1" id="titre-offre">Un tarif clair, en deux parties.</h2>
+          </div>
+          <p class="lead reveal" style="--d:2">
+            Une mise en place pour démarrer, puis un abonnement mensuel pour que tout
+            continue de fonctionner, sans que vous ayez à vous en occuper.
+          </p>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-card reveal">
+            <p class="offer-kicker"><span>01</span><span>Une seule fois</span></p>
+            <h3>Mise en place</h3>
+            <p>Tout ce qu'il faut pour démarrer du bon pied.</p>
+            <ul class="check-list">
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Analyse de vos besoins et de vos fichiers</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Paramétrage de l'application à votre métier</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Import de vos fichiers Excel</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Formation de vous et de votre équipe</li>
+            </ul>
+          </article>
+
+          <article class="offer-card offer-card--dark on-dark reveal" style="--d:1">
+            <p class="offer-kicker"><span>02</span><span>Chaque mois</span></p>
+            <h3>Abonnement</h3>
+            <p>Votre application reste disponible, à jour et entre de bonnes mains.</p>
+            <ul class="check-list">
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Hébergement sécurisé et sauvegardes</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Mises à jour et maintenance</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Assistance par téléphone et par email</li>
+              <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 9.5l4 4 9-9"/></svg>Des évolutions incluses chaque mois</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="offer-foot reveal">
+          <p>Chaque entreprise est différente. Le tarif dépend de vos besoins, et vous le connaissez avant de vous engager.</p>
+          <a class="btn" href="#contact">
+            Demander un devis
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. FAQ  (balises <details> : fonctionnent même sans JavaScript)
+         ==================================================================== -->
+    <section class="section faq" id="faq" aria-labelledby="titre-faq">
+      <div class="container faq-grid">
+        <div class="faq-intro">
+          <p class="eyebrow reveal">05 · Questions fréquentes</p>
+          <h2 class="reveal" style="--d:1" id="titre-faq">Vos questions, des réponses simples.</h2>
+          <p class="reveal" style="--d:2">Une autre question ? <a class="link" href="#contact">Écrivez-moi</a></p>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>Mes données sont-elles en sécurité ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Oui. Vos données sont hébergées en Europe, la connexion est chiffrée et des sauvegardes automatiques sont faites chaque jour.</p>
+              <p>Chaque personne de votre équipe a son propre accès, et vous décidez qui peut voir ou modifier quoi.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>À qui appartiennent mes données ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>À vous, sans exception. Vous pouvez les récupérer à tout moment dans un fichier Excel.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Puis-je arrêter l'abonnement ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Oui, [PRÉAVIS DE RÉSILIATION]. Avant l'arrêt, je vous remets l'ensemble de vos données dans un format lisible.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Est-ce que ça marche sur téléphone ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>Oui. L'application s'adapte au téléphone, à la tablette et à l'ordinateur. Rien à installer depuis un magasin d'applications : un lien suffit, et vous pouvez l'ajouter à l'écran d'accueil de votre téléphone.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Je ne suis pas à l'aise avec l'informatique.<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>C'est justement pour vous. L'application ne contient que ce dont vous avez besoin, je vous forme à son utilisation, et je reste joignable ensuite.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Combien de temps pour la mise en place ?<span class="faq-sign" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+              <p>En général quelques semaines, selon la quantité de données à reprendre et les fonctions souhaitées. Le délai est précisé dans le devis.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         7. CONTACT
+         Formulaire envoyé via Formspree : remplacez [FORMSPREE_ID]
+         (voir README). Sans JavaScript, le formulaire fonctionne aussi.
+         ==================================================================== -->
+    <section class="section contact" id="contact" aria-labelledby="titre-contact">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow reveal">06 · Contact</p>
+          <h2 class="reveal" style="--d:1" id="titre-contact">Parlons de votre activité.</h2>
+          <p class="lead reveal" style="--d:2">Décrivez-moi en quelques lignes comment vous travaillez aujourd'hui. Je vous réponds sous 48 heures ouvrées.</p>
+
+          <dl class="contact-details reveal" style="--d:3">
+            <div><dt>Email</dt><dd><a class="link" href="mailto:[EMAIL]">[EMAIL]</a></dd></div>
+            <div><dt>Téléphone</dt><dd><a class="link" href="tel:[TÉLÉPHONE_LIEN]">[TÉLÉPHONE]</a></dd></div>
+            <div><dt>Zone d'intervention</dt><dd>[ZONE GÉOGRAPHIQUE]</dd></div>
+          </dl>
+        </div>
+
+        <form class="form reveal" style="--d:1" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis depuis le site LOOP">
+          <!-- Champ piège pour les robots : laissé vide par les humains -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Ne pas remplir</label>
+            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="f-nom">Nom et prénom</label>
+            <input id="f-nom" name="nom" type="text" autocomplete="name" required aria-describedby="e-nom">
+            <p class="field-error" id="e-nom" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-metier">Métier</label>
+            <input id="f-metier" name="metier" type="text" list="metiers" placeholder="Plombier, électricien…" autocomplete="organization-title" required aria-describedby="e-metier">
+            <datalist id="metiers">
+              <option value="Plombier"><option value="Chauffagiste"><option value="Électricien">
+              <option value="Menuisier"><option value="Carreleur"><option value="Maçon">
+              <option value="Peintre"><option value="Couvreur"><option value="Serrurier"><option value="Paysagiste">
+            </datalist>
+            <p class="field-error" id="e-metier" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+            <p class="field-error" id="e-email" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Téléphone <span class="opt">(facultatif)</span></label>
+            <input id="f-tel" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field field--full">
+            <label for="f-message">Votre message</label>
+            <textarea id="f-message" name="message" rows="5" placeholder="Ex. : 3 salariés, un fichier Excel pour le stock, je voudrais savoir ce qui part sur chaque chantier." required aria-describedby="e-message"></textarea>
+            <p class="field-error" id="e-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn" type="submit">
+              <span data-submit-label>Envoyer ma demande</span>
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+            </button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form-legal">
+              Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées
+              pour de la publicité. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       PIED DE PAGE (identique sur toutes les pages : pensez à le copier)
+       ====================================================================== -->
+  <footer class="site-footer on-dark">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-pitch">
+          <p>Des applications simples, faites pour les artisans.</p>
+          <a class="btn btn--light" href="#contact">
+            Demander un devis
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <nav class="footer-col" aria-labelledby="pied-nav">
+          <h2 id="pied-nav">Le site</h2>
+          <ul>
+            <li><a class="link" href="#solution">La solution</a></li>
+            <li><a class="link" href="#methode">Méthode</a></li>
+            <li><a class="link" href="#offre">Offre</a></li>
+            <li><a class="link" href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a class="link" href="mailto:[EMAIL]">[EMAIL]</a></li>
+            <li><a class="link" href="tel:[TÉLÉPHONE_LIEN]">[TÉLÉPHONE]</a></li>
+            <li>[ZONE GÉOGRAPHIQUE]</li>
+          </ul>
+        </div>
+        <nav class="footer-col" aria-labelledby="pied-legal">
+          <h2 id="pied-legal">Informations</h2>
+          <ul>
+            <li><a class="link" href="mentions-legales.html">Mentions légales</a></li>
+            <li><a class="link" href="confidentialite.html">Confidentialité</a></li>
+            <li><a class="link" href="cgv.html">CGV</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Grand logo qui se dessine quand on arrive en bas de page -->
+      <svg class="footer-wordmark" data-reveal-self viewBox="22 66 419 118" width="419" height="118" aria-hidden="true" focusable="false">
+        <mask id="m-foot" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300">
+          <rect width="600" height="300" fill="#fff"/>
+          <path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36"/>
+        </mask>
+        <g stroke-width="16">
+          <path class="draw p-l" pathLength="1" d="M30,74 V168 H86"/>
+          <path class="draw p-loop" pathLength="1" mask="url(#m-foot)" stroke-linejoin="round" d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z"/>
+          <path class="draw p-cross" pathLength="1" d="M210,143 L242,107"/>
+          <path class="draw p-p" pathLength="1" d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374"/>
+        </g>
+      </svg>
+
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> LOOP · Entreprise individuelle</p>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="cgv.html">CGV</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="22 74 419 102" width="419" height="102" role="img" aria-label="LOOP">
+<title>LOOP</title>
+<path d="M30,74 V168 H86" fill="none" stroke="#111111" stroke-width="16" stroke-linejoin="miter"/>
+<mask id="cuta" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="300"><rect x="0" y="0" width="600" height="300" fill="#fff"/><path d="M213.5,139.1 L238.5,110.9" stroke="#000" stroke-width="36" stroke-linecap="butt"/></mask>
+<path d="M226,125 C245,100 265,82 292,82 C322,82 344,100 344,125 C344,150 322,168 292,168 C265,168 245,150 226,125 C205,100 185,82 160,82 C130,82 108,100 108,125 C108,150 130,168 160,168 C185,168 205,150 226,125 Z" fill="none" stroke="#111111" stroke-width="16" stroke-linejoin="round" mask="url(#cuta)"/>
+<path d="M210,143 L242,107" fill="none" stroke="#111111" stroke-width="16" stroke-linecap="butt"/>
+<path d="M374,176 V82 H408 A25,25 0 0 1 408,132 H374" fill="none" stroke="#111111" stroke-width="16" stroke-linejoin="miter"/>
+</svg>
