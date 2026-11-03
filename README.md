@@ -140,7 +140,7 @@ Créez un compte [Google Search Console](https://search.google.com/search-consol
 
 | Je veux… | Où |
 | --- | --- |
-| Changer un texte | `index.html` : chaque section est signalée par un grand commentaire (`1. ACCUEIL`, `2. LE PROBLÈME`…) |
+| Changer un texte | `index.html` : chaque section est signalée par un grand commentaire (`1. ACCUEIL`, `2. LA SOLUTION`…) |
 | Changer une couleur de gris, une taille de titre, un espacement | Variables en haut de `assets/css/style.css` (partie 2) |
 | Modifier le menu ou le pied de page | Ils sont présents dans **chaque page HTML** : faites la modification dans les 4 fichiers |
 | Ajouter une question à la FAQ | Copiez un bloc `<details class="faq-item">…</details>` dans `index.html` |

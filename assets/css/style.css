@@ -12,7 +12,7 @@
    8.  En-tête et navigation
    9.  Accueil (hero) + maquette de tableau de bord
    10. Bandeau des métiers
-   11. Sections : le problème, la solution
+   11. La solution
    12. Bandeau « Simple par principe » (fond noir)
    13. Méthode (4 étapes + symbole qui se dessine)
    14. Offre
@@ -190,7 +190,7 @@ p { text-wrap: pretty; }
 
 .muted { color: var(--c-text-3); }
 
-/* Petit titre au-dessus des grands titres : « 01 — Le problème » */
+/* Petit titre au-dessus des grands titres : « 01 · La solution » */
 .eyebrow {
   display: flex;
   align-items: center;
@@ -454,7 +454,6 @@ p { text-wrap: pretty; }
 .nav-open .nav-list li:nth-child(3) { transition-delay: 0.30s; }
 .nav-open .nav-list li:nth-child(4) { transition-delay: 0.35s; }
 .nav-open .nav-list li:nth-child(5) { transition-delay: 0.40s; }
-.nav-open .nav-list li:nth-child(6) { transition-delay: 0.45s; }
 
 .nav-contact {
   display: grid;
@@ -802,33 +801,7 @@ p { text-wrap: pretty; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 
-/* 11a. Le problème -------------------------------------------------------- */
-.problem-list { border-top: 1px solid var(--c-black); }
-
-.problem-item {
-  display: grid;
-  gap: 12px;
-  padding-block: clamp(28px, 4vw, 44px);
-  border-bottom: 1px solid var(--c-line);
-}
-@media (min-width: 760px) {
-  .problem-item {
-    grid-template-columns: 1fr 4fr 6fr;
-    gap: 32px;
-    align-items: baseline;
-  }
-}
-.problem-num {
-  font-size: var(--fs-small);
-  font-weight: 500;
-  color: var(--c-text-3);
-  font-variant-numeric: tabular-nums;
-}
-.problem-item h3 { font-size: clamp(1.375rem, 1.6vw + 0.9rem, 1.875rem); letter-spacing: -0.03em; line-height: 1.15; }
-.problem-item p { color: var(--c-text-2); max-width: 36em; }
-
-
-/* 11b. La solution -------------------------------------------------------- */
+/* 11. La solution -------------------------------------------------------- */
 .solution { background: var(--c-soft); }
 
 /* Grille à filets fins : les 1 px d'écart laissent voir le fond gris */
