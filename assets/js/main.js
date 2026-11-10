@@ -420,7 +420,7 @@
 
       // Rappel pour la mise en ligne : identifiant Formspree pas encore renseigné
       if (form.action.indexOf("FORMSPREE_ID") !== -1) {
-        status.textContent = "Formulaire pas encore relié : remplacez [FORMSPREE_ID] (voir README). En attendant, écrivez-nous à contact@loop.fr.";
+        status.textContent = "Formulaire pas encore relié : remplacez [FORMSPREE_ID] (voir README). En attendant, écrivez-nous à simon.scalvini@erp-loop.fr.";
         return;
       }
 
@@ -436,7 +436,7 @@
           success.focus();
         })
         .catch(function () {
-          status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-nous à contact@loop.fr.";
+          status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou écrivez-nous à simon.scalvini@erp-loop.fr.";
         })
         .finally(function () {
           submitBtn.disabled = false;

@@ -35,17 +35,16 @@ netlify.toml             Réglages Netlify (sécurité, cache)
 
 Les repères entre crochets sont à remplacer **dans tous les fichiers**. Le plus simple : ouvrez le dossier dans [VS Code](https://code.visualstudio.com/) (gratuit), faites **Ctrl + Maj + H** (Cmd + Maj + H sur Mac), saisissez le repère, puis la valeur, et cliquez sur « Remplacer tout ».
 
-Déjà renseignés : email (`contact@loop.fr`), téléphone, zone (toute la France), nom, résiliation sans engagement, domaine (`loop.fr`).
+Déjà renseignés : email (`simon.scalvini@erp-loop.fr`), téléphone, zone (toute la France), nom, résiliation sans engagement, domaine (`loop.fr`).
 
 Restent à compléter :
 
 | Repère | Exemple | Où |
 | --- | --- | --- |
 | `[FORMSPREE_ID]` | `xyzabcde` | dans chaque page HTML (fenêtre de devis) |
-| `[ADRESSE POSTALE]` | adresse de domiciliation | mentions légales, confidentialité |
 | `[SIRET À COMPLÉTER]` | 14 chiffres | mentions légales |
 
-Pour changer le nom de domaine plus tard, remplacez `loop.fr` dans les balises `<head>` des pages, `sitemap.xml` et `robots.txt`.
+Pour changer le nom de domaine plus tard, remplacez `erp-loop.fr` dans les balises `<head>` des pages, `sitemap.xml` et `robots.txt`.
 
 Sur les pages légales, les repères sont surlignés en pointillés : ils disparaissent dès que vous les remplacez par le texte (enlevez aussi la balise `<span class="todo">` autour).
 
@@ -71,7 +70,7 @@ Tous les boutons « Demander un devis » ouvrent une fenêtre avec un formulaire
 4. Remplacez `[FORMSPREE_ID]` par cet identifiant **dans toutes les pages HTML** (recherche-remplacement, voir section 2).
 5. Après la mise en ligne, envoyez-vous une demande de test. Le premier envoi demande de confirmer votre email.
 
-Sans JavaScript, les boutons « Demander un devis » ouvrent simplement un email vers contact@loop.fr.
+Sans JavaScript, les boutons « Demander un devis » ouvrent simplement un email vers simon.scalvini@erp-loop.fr.
 
 ## 4. Voir le site sur votre ordinateur
 
