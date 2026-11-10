@@ -51,7 +51,7 @@ Sur les pages légales, les repères sont surlignés en pointillés : ils dispar
 
 Ces phrases vous engagent auprès de vos clients. Gardez-les seulement si elles sont vraies :
 
-- FAQ : « hébergées en Europe », « sauvegardes chaque jour », « récupérer vos données dans un fichier Excel », « quelques semaines de mise en place ».
+- FAQ et CGV : données stockées chez **Supabase sur des serveurs en Europe** (choisissez bien une région européenne, par ex. Paris ou Francfort, à la création de chaque projet Supabase), « sauvegardes chaque jour » (vérifiez que votre offre Supabase les inclut), « récupérer vos données dans un fichier Excel », « quelques semaines de mise en place ».
 - Pied de page et fenêtre de devis : « Nous vous répondons sous 48 heures ouvrées ».
 - Mentions légales : l'adresse de Netlify (vérifiez-la sur netlify.com au moment de la mise en ligne).
 - Confidentialité : les garanties de transfert hors UE de FormSubmit et Netlify (voir leurs pages « DPA »).
