@@ -14,7 +14,7 @@
    9.  Bandeau noir : il s'élargit, puis les mots s'éclairent
    10. Méthode : le symbole se dessine au fil des étapes
    11. Bandeau de mots qui glissent
-   12. Fenêtre « Demander un devis » et formulaire (Formspree)
+   12. Fenêtre « Demander un devis » et formulaire (FormSubmit)
    13. Année du pied de page
    ========================================================================== */
 (function () {
@@ -380,7 +380,7 @@
     // Touche Échap : fermeture animée
     quote.addEventListener("cancel", function (e) { e.preventDefault(); closeQuote(); });
 
-    // --- Envoi du formulaire (Formspree) ---
+    // --- Envoi du formulaire (FormSubmit) ---
     form.noValidate = true; // validation gérée ici, avec des messages en français
     var status = form.querySelector("[data-form-status]");
     var submitBtn = form.querySelector('button[type="submit"]');
@@ -418,17 +418,17 @@
       status.textContent = "";
       if (!validate()) return;
 
-      // Rappel pour la mise en ligne : identifiant Formspree pas encore renseigné
-      if (form.action.indexOf("FORMSPREE_ID") !== -1) {
-        status.textContent = "Formulaire pas encore relié : remplacez [FORMSPREE_ID] (voir README). En attendant, écrivez-nous à simon.scalvini@erp-loop.fr.";
-        return;
-      }
-
       submitBtn.disabled = true;
       submitLabel.textContent = "Envoi en cours…";
-      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+      // FormSubmit : la version « ajax » de l'adresse répond sans quitter la page
+      var endpoint = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+      fetch(endpoint, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
         .then(function (response) {
           if (!response.ok) throw new Error("Erreur " + response.status);
+          return response.json();
+        })
+        .then(function (data) {
+          if (data && String(data.success) === "false") throw new Error(data.message || "Refusé");
           form.reset();
           formWrap.hidden = true;
           success.hidden = false;

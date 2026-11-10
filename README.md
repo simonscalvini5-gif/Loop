@@ -41,7 +41,6 @@ Restent à compléter :
 
 | Repère | Exemple | Où |
 | --- | --- | --- |
-| `[FORMSPREE_ID]` | `xyzabcde` | dans chaque page HTML (fenêtre de devis) |
 | `[SIRET À COMPLÉTER]` | 14 chiffres | mentions légales |
 
 Pour changer le nom de domaine plus tard, remplacez `erp-loop.fr` dans les balises `<head>` des pages, `sitemap.xml` et `robots.txt`.
@@ -55,22 +54,22 @@ Ces phrases vous engagent auprès de vos clients. Gardez-les seulement si elles 
 - FAQ : « hébergées en Europe », « sauvegardes chaque jour », « récupérer vos données dans un fichier Excel », « quelques semaines de mise en place ».
 - Pied de page et fenêtre de devis : « Nous vous répondons sous 48 heures ouvrées ».
 - Mentions légales : l'adresse de Netlify (vérifiez-la sur netlify.com au moment de la mise en ligne).
-- Confidentialité : les garanties de transfert hors UE de Formspree et Netlify (voir leurs pages « DPA »).
+- Confidentialité : les garanties de transfert hors UE de FormSubmit et Netlify (voir leurs pages « DPA »).
 - CGV : la page contient uniquement un plan. Faites rédiger ou relire le texte final par un professionnel.
 
 ---
 
-## 3. Relier le formulaire de devis (Formspree)
+## 3. Formulaire de devis (FormSubmit)
 
-Tous les boutons « Demander un devis » ouvrent une fenêtre avec un formulaire. Le site n'a pas de serveur : c'est Formspree qui reçoit les demandes et vous les envoie par email.
+Tous les boutons « Demander un devis » ouvrent une fenêtre avec un formulaire. Le site n'a pas de serveur : c'est le service gratuit [FormSubmit](https://formsubmit.co) qui transmet chaque demande par email à **simon.scalvini@erp-loop.fr**, sans compte à créer.
 
-1. Créez un compte gratuit sur [formspree.io](https://formspree.io) avec votre email professionnel.
-2. Cliquez sur **New Form** et nommez-le « Site LOOP ».
-3. Formspree affiche une adresse du type `https://formspree.io/f/xyzabcde`. La fin (`xyzabcde`) est votre identifiant.
-4. Remplacez `[FORMSPREE_ID]` par cet identifiant **dans toutes les pages HTML** (recherche-remplacement, voir section 2).
-5. Après la mise en ligne, envoyez-vous une demande de test. Le premier envoi demande de confirmer votre email.
+**Activation (une seule fois) :** après la mise en ligne, envoyez une demande de test depuis le site. FormSubmit envoie alors un email « Action Required: Activate FormSubmit » à simon.scalvini@erp-loop.fr : cliquez sur **Activate Form**. Les demandes suivantes arrivent directement dans votre boîte (pensez à vérifier les indésirables la première fois).
 
-Sans JavaScript, les boutons « Demander un devis » ouvrent simplement un email vers simon.scalvini@erp-loop.fr.
+**Masquer l'adresse (conseillé) :** l'email d'activation contient aussi un code aléatoire. Remplacez `simon.scalvini@erp-loop.fr` par ce code dans l'attribut `action="https://formsubmit.co/..."` de chaque page HTML : votre adresse n'apparaîtra plus dans le code du formulaire.
+
+**Changer d'adresse de réception :** remplacez l'adresse dans ce même attribut `action`, sur chaque page HTML, puis refaites l'activation.
+
+Sans JavaScript, les boutons « Demander un devis » ouvrent simplement un email.
 
 ## 4. Voir le site sur votre ordinateur
 
@@ -153,6 +152,6 @@ Créez un compte [Google Search Console](https://search.google.com/search-consol
 - **Sans JavaScript**, tout le contenu reste visible.
 - **Défilement fluide** grâce à Lenis (hébergé sur le site, licence MIT).
 - **Police Inter hébergée sur le site** : plus rapide, et aucune donnée de visiteur n'est envoyée à Google (pas de bandeau cookies nécessaire).
-- **Aucun cookie**, aucun outil de suivi. Les demandes de devis passent par une fenêtre avec formulaire (Formspree).
+- **Aucun cookie**, aucun outil de suivi. Les demandes de devis passent par une fenêtre avec formulaire (FormSubmit).
 - **Accessibilité** : balises sémantiques, lien « Aller au contenu », navigation au clavier, textes alternatifs.
 - **SEO** : titre et description par page, Open Graph (aperçu lors d'un partage), données structurées, sitemap.

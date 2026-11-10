@@ -582,7 +582,8 @@
   <!-- ======================================================================
        FENÊTRE « DEMANDER UN DEVIS »
        S'ouvre au clic sur tous les boutons « Demander un devis » (attribut
-       data-quote). Envoi via Formspree : remplacez [FORMSPREE_ID] (README).
+       data-quote). Les demandes sont envoyées par FormSubmit à
+       simon.scalvini@erp-loop.fr (pour changer d'adresse : voir README).
        Sans JavaScript, ces boutons ouvrent simplement un email.
        ====================================================================== -->
   <dialog class="quote" id="devis" aria-labelledby="titre-devis" data-quote-dialog>
@@ -605,12 +606,14 @@
         <h2 class="quote-title" id="titre-devis">Demander un devis</h2>
         <p class="quote-lead">Décrivez votre besoin en quelques lignes. Nous vous répondons sous 48 heures ouvrées, gratuitement et sans engagement.</p>
 
-        <form class="form" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
+        <form class="form" action="https://formsubmit.co/simon.scalvini@erp-loop.fr" method="POST" data-form>
           <input type="hidden" name="_subject" value="Nouvelle demande de devis depuis le site LOOP">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <!-- Champ piège pour les robots : laissé vide par les humains -->
           <div class="hp" aria-hidden="true">
             <label for="f-gotcha">Ne pas remplir</label>
-            <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+            <input type="text" id="f-gotcha" name="_honey" tabindex="-1" autocomplete="off">
           </div>
 
           <div class="field">
