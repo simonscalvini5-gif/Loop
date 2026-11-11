@@ -1229,6 +1229,21 @@ body:has(.site-header.is-hidden) .method-visual { top: 0; }
   border-radius: var(--radius);
 }
 .offer-card--dark { background: var(--c-deep); border-color: var(--c-deep); color: var(--c-white); }
+/* Offre unique : carte pleine largeur, titre à gauche et liste à droite */
+.offer-card--single { gap: 0; }
+.offer-card--single .offer-main > p { margin-top: 16px; color: var(--c-dark-text-2); max-width: 26em; }
+
+.offer-card--single .check-list { margin-top: 40px; }
+@media (min-width: 960px) {
+  .offer-card--single {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .offer-card--single .check-list { margin-top: 0; }
+  .offer-card--single .offer-kicker { padding-right: 24px; white-space: nowrap; }
+}
 .offer-card--dark h3 { color: var(--c-white); }
 
 .offer-kicker {
