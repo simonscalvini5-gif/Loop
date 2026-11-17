@@ -1,6 +1,6 @@
 # LOOP · Site vitrine
 
-Site vitrine de LOOP : des ERP personnalisés, à la place des fichiers Excel.
+Site vitrine de LOOP : des ERP personnalisés pour les PME, en abonnement, à la place des fichiers Excel et des logiciels inadaptés.
 
 Le site est fait en **HTML, CSS et un peu de JavaScript**. Il n'y a aucun outil à installer, aucune étape de compilation et aucune dépendance.
 
